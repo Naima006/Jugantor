@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>জাতীয় | Jugantor | Bangla News Today</title>
+	<meta name="description" content="Jugantor জাতীয় বিভাগের সর্বশেষ খবর। সরকার, আইন-বিচার, অপরাধ ও অন্যান্য জাতীয় সংবাদ।">
+	<meta name="theme-color" content="rgb(184, 0, 0)">
+
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jugantor.com/uploads/settings/favicon.png">
+
+	<!-- Google Fonts: Noto Serif Bengali -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@100..900&display=swap" rel="stylesheet">
+
+	<!-- Bootstrap 3.7 CSS -->
+	<link rel="stylesheet" type="text/css" href="https://www.jugantor.com/assets/vendors/bootstrap3.7/css/bootstrap.min.css">
+	<!-- Font Awesome 6 -->
+	<link rel="stylesheet" type="text/css" href="https://www.jugantor.com/assets/vendors/fontawesome6/css/fontawesome.css">
+	<link rel="stylesheet" type="text/css" href="https://www.jugantor.com/assets/vendors/fontawesome6/css/brands.css">
+	<link rel="stylesheet" type="text/css" href="https://www.jugantor.com/assets/vendors/fontawesome6/css/solid.css">
+	<!-- FlexSlider CSS -->
+	<link rel="stylesheet" href="https://www.jugantor.com/assets/vendors/flex-gallery/flexslider.css" type="text/css" media="screen">
+	<!-- Datepicker CSS -->
+	<link rel="stylesheet" type="text/css" href="https://www.jugantor.com/assets/vendors/datepicker/bootstrap-datepicker.min.css">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<!-- ===================== DESKTOP HEADER ===================== -->
+	<header class="desktopHeader">
+		<div class="container bgWhite marginT10">
+			
+			<div class="row">
+				<div class="col-md-4">
+					<div class="desktopHeaderLogoLeftDiv">
+						<span class="mobile-menu-trigger visible-xs cursorPointer" style="display: inline-block; vertical-align: middle;">
+							<svg viewBox="0 0 16 16" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="#373737" stroke="none" style="display: block;">
+								<path d="M0 2v12h16V2zm6 2h8v8H6z"></path>
+							</svg>
+						</span>
+
+						<span class="desktopSearchIcon cursorPointer mega-menu-trigger desktopClickLoadMenubarCategories">
+							<i class="fa fa-bars w17 colorBlack"></i>
+						</span>
+						<span class="desktopSearchIcon cursorPointer allMenu" style="display: none;"><i class="fa fa-times w17 colorBlack"></i></span>
+						<span class="desktopTodayDate todaysDate">রবিবার, ০৫ জুলাই ২০২৬</span>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="text-center padding10">
+						<a aria-label="Logo" href="index.html"><img src="https://cdn.jugantor.com/uploads/settings/logo-black.png" alt="Logo" height="50"></a>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="desktopHeaderLogoRightDiv">
+						<a class="borderRadius0" aria-label="আজকের পত্রিকা" href="#/todays-paper">আজকের পত্রিকা</a>
+						<a class="borderRadius0" aria-label="ই-পেপার" href="https://epaper.jugantor.com" target="_blank">ই-পেপার</a>
+					</div>
+					<div class="topSocialIcon text-right">
+						<a aria-label="Facebook" href="https://www.facebook.com/DainikJugantor" target="_blank" class="fa fa-brands fa-facebook borderRadius0"></a>
+						<a aria-label="Twitter" href="https://twitter.com/DailyJugantor" target="_blank" class="fa fa-brands fa-x-twitter borderRadius0"></a>
+						<a aria-label="Linkedin" href="https://www.linkedin.com/company/daily-jugantor/" target="_blank" class="fa fa-brands fa-linkedin borderRadius0"></a>
+						<a aria-label="Instagram" href="https://www.instagram.com/dainikjugantor/" target="_blank" class="fa fa-brands fa-instagram borderRadius0"></a>
+						<a aria-label="Youtube" href="https://www.youtube.com/c/DailyJugantorYouTube?sub_confirmation=1" target="_blank" class="fa fa-brands fa-youtube borderRadius0"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ===================== NAVBAR ===================== -->
+		<nav id="navbar_top" class="navbar navbar-expand-lg bgWhite">
+			<div class="container">
+				<div class="row">
+					<!-- Sticky logo (hidden until scroll) -->
+					<div class="col-md-1 stickyHeaderLogoDiv">
+						<div class="text-left stickyLogo marginT5 marginB5" style="display: none;">
+							<a aria-label="Logo" href="#"><img src="https://cdn.jugantor.com/uploads/settings/logo-black.png" alt="Logo" height="40" class="marginT2"></a>
+						</div>
+					</div>
+
+					<!-- Main menu -->
+					<div class="col-md-10 text-center stickyHeaderMenuDiv paddingLR0">
+						<div class="headerMenuWraperDiv">
+							<div class="headerMenu">
+								<ul>
+									<li><a aria-label="সর্বশেষ" href="#/latest">সর্বশেষ</a></li>
+									<li><a aria-label="জাতীয়" href="national.html">জাতীয়</a></li>
+									<li><a aria-label="রাজনীতি" href="#/politics">রাজনীতি</a></li>
+									<li><a aria-label="অর্থনীতি" href="#/economics">অর্থনীতি</a></li>
+									<li><a aria-label="আন্তর্জাতিক" href="#/international">আন্তর্জাতিক</a></li>
+									<li class="dropdown">
+										<!-- Updated with standardized classes -->
+										<a href="#" class="moreClickLoadMenubarCategories countryCategory" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											সারাদেশ <i class="fa fa-angle-down"></i>
+										</a>
+										<!-- Removed 'textCenter' which caused the alignment issue -->
+										<div class="dropdown-menu dropdown-menu-right customMoreDropdown" aria-labelledby="dLabel">
+											<ul class="moreLoadMenubarCategories">
+												<li><a href="#/location" class="colorBlack hoverRed textDecorationNone">জেলার খবর</a></li>
+											</ul>
+										</div>
+									</li>
+									<li><a aria-label="খেলা" href="#/sports">খেলা</a></li>
+									<li><a aria-label="বিনোদন" href="#/entertainment">বিনোদন</a></li>
+									<li><a aria-label="চাকরি" href="#/job-seek">চাকরি</a></li>
+									<li class="dropdown">
+										<a href="#" class="moreClickLoadMenubarCategories" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">আরও <i class="fa fa-angle-down"></i></a>
+										<div class="dropdown-menu dropdown-menu-right customMoreDropdown" aria-labelledby="dLabel">
+											<ul class="scrollbar1 moreLoadMenubarCategories">
+												<li><a aria-label="জাতীয়" href="national.html" class="colorBlack hoverRed textDecorationNone">জাতীয়</a></li>
+												<li><a aria-label="রাজনীতি" href="#/politics" class="colorBlack hoverRed textDecorationNone">রাজনীতি</a></li>
+												<li><a aria-label="অর্থনীতি" href="#/economics" class="colorBlack hoverRed textDecorationNone">অর্থনীতি</a></li>
+												<li><a aria-label="আন্তর্জাতিক" href="#/international" class="colorBlack hoverRed textDecorationNone">আন্তর্জাতিক</a></li>
+												<li><a aria-label="সারাদেশ" href="#/country-news" class="colorBlack hoverRed textDecorationNone">সারাদেশ</a></li>
+												<li><a aria-label="রাজধানী" href="#/capital" class="colorBlack hoverRed textDecorationNone">রাজধানী</a></li>
+												<li><a aria-label="শিক্ষাঙ্গন" href="#/campus" class="colorBlack hoverRed textDecorationNone">শিক্ষাঙ্গন</a></li>
+												<li><a aria-label="খেলা" href="#/sports" class="colorBlack hoverRed textDecorationNone">খেলা</a></li>
+												<li><a aria-label="বিনোদন" href="#/entertainment" class="colorBlack hoverRed textDecorationNone">বিনোদন</a></li>
+												<li><a aria-label="ডাক্তার আছেন" href="#/doctor-available" class="colorBlack hoverRed textDecorationNone">ডাক্তার আছেন</a></li>
+												<li><a aria-label="চাকরি" href="#/job-seek" class="colorBlack hoverRed textDecorationNone">চাকরি</a></li>
+												<li><a aria-label="লাইফ স্টাইল" href="#/lifestyle" class="colorBlack hoverRed textDecorationNone">লাইফ স্টাইল</a></li>
+												<li><a aria-label="ইসলাম ও জীবন" href="#/islam-life" class="colorBlack hoverRed textDecorationNone">ইসলাম ও জীবন</a></li>
+												<li><a aria-label="বিজ্ঞান ও তথ্যপ্রযুক্তি" href="#/tech" class="colorBlack hoverRed textDecorationNone">বিজ্ঞান ও তথ্যপ্রযুক্তি</a></li>
+												<li><a aria-label="সাহিত্য" href="#/literature" class="colorBlack hoverRed textDecorationNone">সাহিত্য</a></li>
+												<li><a aria-label="চিত্র বিচিত্র" href="#/various" class="colorBlack hoverRed textDecorationNone">চিত্র বিচিত্র</a></li>
+												<li><a aria-label="সম্পাদকীয়" href="#/editorial" class="colorBlack hoverRed textDecorationNone">সম্পাদকীয়</a></li>
+												<li><a aria-label="পরবাস" href="#/exile" class="colorBlack hoverRed textDecorationNone">পরবাস</a></li>
+												<li><a aria-label="বিচ্ছু" href="#/bicchu" class="colorBlack hoverRed textDecorationNone">বিচ্ছু</a></li>
+												<li><a aria-label="ছবি" href="#/photos" class="colorBlack hoverRed textDecorationNone">ছবি</a></li>
+												<li><a aria-label="ভিডিও" href="#/videos" class="colorBlack hoverRed textDecorationNone">ভিডিও</a></li>
+												<li><a aria-label="সাক্ষাৎকার" href="#/interview" class="colorBlack hoverRed textDecorationNone">সাক্ষাৎকার</a></li>
+												<li><a aria-label="সোশ্যাল মিডিয়া" href="#/social-media" class="colorBlack hoverRed textDecorationNone">সোশ্যাল মিডিয়া</a></li>
+												<li><a aria-label="কর্পোরেট নিউজ" href="#/corporate-news" class="colorBlack hoverRed textDecorationNone">কর্পোরেট নিউজ</a></li>
+												<li><a aria-label="২৭ বছরে যুগান্তর" href="#/27th-anniversary" class="colorBlack hoverRed textDecorationNone">২৭ বছরে যুগান্তর</a></li>
+											</ul>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<!-- Search icon -->
+					<div class="col-md-1">
+						<div class="pull-right marginT18">
+							<a aria-label="Search" href="#/search"><i class="fa fa-search desktopSearchIcon2"></i></a>
+							<span class="desktopStickyBar" style="display: none;">
+								<span class="cursorPointer allMenu desktopClickLoadMenubarCategories"><i class="fa fa-bars desktopStickyBarIcon"></i></span>
+								<span class="cursorPointer allMenu" style="display: none;"><i class="fa fa-times desktopStickyBarIcon"></i></span>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- ===================== MEGA MENU (toggle) ===================== -->
+			<div class="megaMenu megaMenuDiv borderC1T1" style="display: none;">
+				<div class="bgWhiteImp">
+					<div class="container paddingT30 paddingB40">
+						<div class="desktopLoadMenubarCategories">
+							<div class="col-md-2 paddingL0"><div class="paddingT5 paddingB5"><a class="title11 textDecorationNone colorBlack hoverRed" aria-label="জাতীয়" href="#/national">জাতীয়</a></div></div>
+							<div class="col-md-2 paddingL0"><div class="paddingT5 paddingB5"><a class="title11 textDecorationNone colorBlack hoverRed" aria-label="রাজনীতি" href="#/politics">রাজনীতি</a></div></div>
+							<div class="col-md-2 paddingL0"><div class="paddingT5 paddingB5"><a class="title11 textDecorationNone colorBlack hoverRed" aria-label="অর্থনীতি" href="#/economics">অর্থনীতি</a></div></div>
+							<div class="col-md-2 paddingL0"><div class="paddingT5 paddingB5"><a class="title11 textDecorationNone colorBlack hoverRed" aria-label="আন্তর্জাতিক" href="#/international">আন্তর্জাতিক</a></div></div>
+							<div class="col-md-2 paddingL0"><div class="paddingT5 paddingB5"><a class="title11 textDecorationNone colorBlack hoverRed" aria-label="সারাদেশ" href="#/country-news">সারাদেশ</a></div></div>
+							<div class="col-md-2 paddingL0"><div class="paddingT5 paddingB5"><a class="title11 textDecorationNone colorBlack hoverRed" aria-label="রাজধানী" href="#/capital">রাজধানী</a></div></div>
+							<div class="col-md-2 paddingL0"><div class="paddingT5 paddingB5"><a class="title11 textDecorationNone colorBlack hoverRed" aria-label="শিক্ষাঙ্গন" href="#/campus">শিক্ষাঙ্গন</a></div></div>
+							<div class="col-md-2 paddingL0"><div class="paddingT5 paddingB5"><a class="title11 textDecorationNone colorBlack hoverRed" aria-label="খেলা" href="#/sports">খেলা</a></div></div>
+							<div class="col-md-2 paddingL0"><div class="paddingT5 paddingB5"><a class="title11 textDecorationNone colorBlack hoverRed" aria-label="বিনোদন" href="#/entertainment">বিনোদন</a></div></div>
+							<div class="col-md-2 paddingL0"><div class="paddingT5 paddingB5"><a class="title11 textDecorationNone colorBlack hoverRed" aria-label="ডাক্তার আছেন" href="#/doctor-available">ডাক্তার আছেন</a></div></div>
+							<div class="col-md-2 paddingL0"><div class="paddingT5 paddingB5"><a class="title11 textDecorationNone colorBlack hoverRed" aria-label="চাকরি" href="#/job-seek">চাকরি</a></div></div>
+							<div class="col-md-2 paddingL0"><div class="paddingT5 paddingB5"><a class="title11 textDecorationNone colorBlack hoverRed" aria-label="লাইফ স্টাইল" href="#/lifestyle">লাইফ স্টাইল</a></div></div>
+							<div class="col-md-2 paddingL0"><div class="paddingT5 paddingB5"><a class="title11 textDecorationNone colorBlack hoverRed" aria-label="ইসলাম ও জীবন" href="#/islam-life">ইসলাম ও জীবন</a></div></div>
+							<div class="col-md-2 paddingL0"><div class="paddingT5 paddingB5"><a class="title11 textDecorationNone colorBlack hoverRed" aria-label="বিজ্ঞান ও তথ্যপ্রযুক্তি" href="#/tech">বিজ্ঞান ও তথ্যপ্রযুক্তি</a></div></div>
+							<div class="col-md-2 paddingL0"><div class="paddingT5 paddingB5"><a class="title11 textDecorationNone colorBlack hoverRed" aria-label="সাহিত্য" href="#/literature">সাহিত্য</a></div></div>
+							<div class="col-md-2 paddingL0"><div class="paddingT5 paddingB5"><a class="title11 textDecorationNone colorBlack hoverRed" aria-label="চিত্র বিচিত্র" href="#/various">চিত্র বিচিত্র</a></div></div>
+							<div class="col-md-2 paddingL0"><div class="paddingT5 paddingB5"><a class="title11 textDecorationNone colorBlack hoverRed" aria-label="সম্পাদকীয়" href="#/editorial">সম্পাদকীয়</a></div></div>
+							<div class="col-md-2 paddingL0"><div class="paddingT5 paddingB5"><a class="title11 textDecorationNone colorBlack hoverRed" aria-label="পরবাস" href="#/exile">পরবাস</a></div></div>
+							<div class="col-md-2 paddingL0"><div class="paddingT5 paddingB5"><a class="title11 textDecorationNone colorBlack hoverRed" aria-label="বিচ্ছু" href="#/bicchu">বিচ্ছু</a></div></div>
+							<div class="col-md-2 paddingL0"><div class="paddingT5 paddingB5"><a class="title11 textDecorationNone colorBlack hoverRed" aria-label="ছবি" href="#/photos">ছবি</a></div></div>
+							<div class="col-md-2 paddingL0"><div class="paddingT5 paddingB5"><a class="title11 textDecorationNone colorBlack hoverRed" aria-label="ভিডিও" href="#/videos">ভিডিও</a></div></div>
+							<div class="col-md-2 paddingL0"><div class="paddingT5 paddingB5"><a class="title11 textDecorationNone colorBlack hoverRed" aria-label="সাক্ষাৎকার" href="#/interview">সাক্ষাৎকার</a></div></div>
+							<div class="col-md-2 paddingL0"><div class="paddingT5 paddingB5"><a class="title11 textDecorationNone colorBlack hoverRed" aria-label="সোশ্যাল মিডিয়া" href="#/social-media">সোশ্যাল মিডিয়া</a></div></div>
+							<div class="col-md-2 paddingL0"><div class="paddingT5 paddingB5"><a class="title11 textDecorationNone colorBlack hoverRed" aria-label="কর্পোরেট নিউজ" href="#/corporate-news">কর্পোরেট নিউজ</a></div></div>
+							<div class="col-md-2 paddingL0"><div class="paddingT5 paddingB5"><a class="title11 textDecorationNone colorBlack hoverRed" aria-label="২৭ বছরে যুগান্তর" href="#/27th-anniversary">২৭ বছরে যুগান্তর</a></div></div>
+						</div>
+						<div class="col-md-12 paddingLR0"><p class="desktopDivider"></p></div>
+						<div class="col-md-12 paddingLR0">
+							<div class="desktopMegamenuSpecialLinks marginT10">
+								<a class="bgRed colorWhite" aria-label="সব বিভাগ" href="#/categories"><i class="fa fa-table-list fontSize14"></i> সব বিভাগ</a>
+								<a aria-label="ভিডিও" href="#/videos"><i class="fa fa-film fontSize14"></i> ভিডিও</a>
+								<a aria-label="আর্কাইভ" href="#/archive"><i class="fa fa-archive fontSize14"></i> আর্কাইভ</a>
+								<a aria-label="আজকের পত্রিকা" href="#/todays-paper"><i class="fa fa-table-list fontSize14"></i> আজকের পত্রিকা</a>
+								<a aria-label="ই-পেপার" href="https://epaper.jugantor.com" target="_blank"><i class="fa fa-newspaper fontSize14"></i> ই-পেপার</a>
+								<a aria-label="বাংলা কনভার্টার" href="#/bn-converter" target="_blank"><i class="fa fa-exchange fontSize14"></i> ইউনিকোড কনভার্টার</a>
+								<a aria-label="বিজ্ঞাপন" href="#/advertisement" target="_blank"><i class="fa fa-ad fontSize14"></i> বিজ্ঞাপন</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<!-- ===================== DESKTOP HEADER END ===================== -->
+
+
+	<!-- ===================== MAIN CONTENT ===================== -->
+	<main class="mainDiv">
+
+		<!-- ===== CATEGORY PAGE BODY ===== -->
+		<section class="container marginT20">
+			<div class="row">
+
+				<!-- ===== CATEGORY HEADER: title + subcategories ===== -->
+				<div class="col-sm-12 col-md-12 marginB20 marginT10">
+					<h1 class="desktopCategoryTitle"><a aria-label="জাতীয়" href="national.html"><strong>জাতীয়</strong></a></h1>
+					<div class="desktopSubCategoryDiv">
+						<ul>
+							<li><i class="fa fa-circle"></i> <h2><a aria-label="সরকার" href="https://www.jugantor.com/government">সরকার</a></h2></li>
+							<li><i class="fa fa-circle"></i> <h2><a aria-label="অপরাধ" href="https://www.jugantor.com/crime">অপরাধ</a></h2></li>
+							<li><i class="fa fa-circle"></i> <h2><a aria-label="আইন-বিচার" href="https://www.jugantor.com/law-justice">আইন-বিচার</a></h2></li>
+							<li><i class="fa fa-circle"></i> <h2><a aria-label="গণমাধ্যম" href="https://www.jugantor.com/media">গণমাধ্যম</a></h2></li>
+							<li><i class="fa fa-circle"></i> <h2><a aria-label="দুর্ঘটনা" href="https://www.jugantor.com/accident">দুর্ঘটনা</a></h2></li>
+							<li><i class="fa fa-circle"></i> <h2><a aria-label="শোক" href="https://www.jugantor.com/mourning">শোক</a></h2></li>
+							<li><i class="fa fa-circle"></i> <h2><a aria-label="অন্যান্য" href="https://www.jugantor.com/national-others">অন্যান্য</a></h2></li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- ===== LEAD NEWS + TOP STORIES GRID ===== -->
+				<div class="col-sm-12 col-md-12">
+					<div class="row marginLR-10">
+
+						<!-- Large lead story -->
+						<div class="col-sm-6 col-md-6 paddingLR10 desktopSectionLead">
+							<div class="thumbnail">
+								<div class="positionRelative">
+									<img src="https://cdn.jugantor.com/assets/news_photos/2026/07/07/pay-scale-2-6a4c89e0727ed.jpg" class="img-responsive borderRadius5" alt="আর্থিক সংকটে কাটছাঁট হচ্ছে নবম পে স্কেল, তালিকায় যেসব ভাতা">
+								</div>
+								<div class="caption">
+									<h1 class="title9 marginT5 marginB5"><strong>আর্থিক সংকটে কাটছাঁট হচ্ছে নবম পে স্কেল, তালিকায় যেসব ভাতা</strong></h1>
+									<p class="desktopSummary marginB5 marginT10">রাজস্ব আয়ের চাপ, বাজেট ঘাটতি, ঋণ পরিশোধের দায় এবং উচ্চ মূল্যস্ফীতির বাস্তবতায় প্রস্তাবিত বেতন কাঠামোয় কাটছাঁটের পথে এগোচ্ছে সরকার। ...</p>
+								</div>
+								<a href="https://www.jugantor.com/national/1123598" class="linkOverlay"></a>
+							</div>
+						</div>
+
+						<!-- 2×2 top stories grid -->
+						<div class="col-sm-6 col-md-6">
+							<div class="row borderLastItemNone desktopFlexRow">
+
+								<div class="col-sm-6 col-md-6 lastItemNone paddingLR10">
+									<div class="desktopSectionLead marginB5">
+										<div class="thumbnail borderRadius0 bgUnset">
+											<div class="positionRelative">
+												<img src="https://cdn.jugantor.com/assets/news_photos/2026/07/07/medium/R-(8)-69f08eb70d872-(1)-6a12baa34ee8b-6a4c894e88594.jpg" class="img-responsive borderRadius5" alt="রাজধানীসহ দুই বিভাগে ভারি বর্ষণের আভাস">
+											</div>
+											<div class="caption paddingTB0 paddingLR10">
+												<h3 class="title10 marginT0">রাজধানীসহ দুই বিভাগে ভারি বর্ষণের আভাস</h3>
+											</div>
+											<a href="https://www.jugantor.com/national/1123597" class="linkOverlay"></a>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm-6 col-md-6 lastItemNone paddingLR10">
+									<div class="desktopSectionLead marginB5">
+										<div class="thumbnail borderRadius0 bgUnset">
+											<div class="positionRelative">
+												<img src="https://cdn.jugantor.com/assets/news_photos/2026/07/07/medium/image-735696-1698933918-6a4c80486dcc5.jpg" class="img-responsive borderRadius5" alt="বাজেটের দ্বিতীয় অধিবেশন শুরু বিকাল ৩টায়">
+											</div>
+											<div class="caption paddingTB0 paddingLR10">
+												<h3 class="title10 marginT0">বাজেটের দ্বিতীয় অধিবেশন শুরু বিকাল ৩টায়</h3>
+											</div>
+											<a href="https://www.jugantor.com/national/1123582" class="linkOverlay"></a>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm-6 col-md-6 lastItemNone paddingLR10">
+									<div class="desktopSectionLead marginB5">
+										<div class="thumbnail borderRadius0 bgUnset">
+											<div class="positionRelative">
+												<img src="https://cdn.jugantor.com/assets/news_photos/2026/07/07/medium/gas-675fd0835ab57-695674ee4373c-697051243b62c-6a12d8337bff0-6a4b33a6c5e1a-6a4c7b19eebdc.jpg" class="img-responsive borderRadius5" alt="যেসব এলাকায় টানা ১৬ ঘণ্টা গ্যাস থাকবে না আজ">
+											</div>
+											<div class="caption paddingTB0 paddingLR10">
+												<h3 class="title10 marginT0">যেসব এলাকায় টানা ১৬ ঘণ্টা গ্যাস থাকবে না আজ</h3>
+											</div>
+											<a href="https://www.jugantor.com/national/1123574" class="linkOverlay"></a>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm-6 col-md-6 lastItemNone paddingLR10">
+									<div class="desktopSectionLead marginB5">
+										<div class="thumbnail borderRadius0 bgUnset">
+											<div class="positionRelative">
+												<img src="https://cdn.jugantor.com/assets/news_photos/2026/07/07/medium/985656-6a4c7b0f4b637.jpg" class="img-responsive borderRadius5" alt="বেগম খালেদা জিয়া বেতনের মাত্র এক টাকা রেখে বাকিটা দিয়ে দিতেন এতিমখানায়">
+											</div>
+											<div class="caption paddingTB0 paddingLR10">
+												<h3 class="title10 marginT0"><span class="shoulder">মারুফ কামাল খানের পোস্ট</span> <i class="fa fa-circle dot"></i> বেগম খালেদা জিয়া বেতনের মাত্র এক টাকা রেখে বাকিটা দিয়ে দিতেন এতিমখানায়</h3>
+											</div>
+											<a href="https://www.jugantor.com/national/1123573" class="linkOverlay"></a>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div><!-- /row marginLR-10 -->
+				</div>
+
+				<div class="col-sm-12 col-md-12">
+					<p class="desktopDivider marginT0 marginB10"></p>
+				</div>
+
+			</div><!-- /row -->
+		</section>
+
+
+		<!-- ===== ARTICLE LIST + SIDEBAR ===== -->
+		<section class="container marginT10">
+			<div class="row marginLR-10">
+
+				<!-- ===== MAIN ARTICLE LIST (col-md-9) ===== -->
+				<div class="col-sm-12 col-md-8 col-md-offset-2 paddingLR10">
+					<div class="desktopSectionListMedia2 listItemLastBB0">
+
+						<!-- Article 1 -->
+						<div class="media positionRelative marginB5">
+							<div class="media-body">
+								<h4 class="title10 marginT2">ঢাকার বাতাস আজ 'অস্বাস্থ্যকর'</h4>
+								<p class="desktopSummary marginT10 hidden-xs">বিশ্বের অনেক শহরের মতো রাজধানী ঢাকাও দীর্ঘদিন ধরে বায়ুদূষণের চ্যালেঞ্জ মোকাবিলা করছে। বিশেষজ্ঞরা বলছেন, সমন্বিত উদ্যোগ না নিলে এই সমস্যা থেকে মুক্তি পাওয়া কঠিন ...</p>
+								<p class="desktopTime marginT15"><i class="fa fa-regular fa-clock"></i> ০৭ জুলাই ২০২৬, ০৯:৫০ এএম</p>
+							</div>
+							<div class="media-right">
+								<div class="positionRelative">
+									<img class="media-object borderRadius5 xs-width130" src="https://cdn.jugantor.com/assets/news_photos/2026/07/07/medium/BeFunky-collage-69e05c60be5a2-(1)-6a4c779db3e02.jpg" width="300" alt="ঢাকার বাতাস আজ 'অস্বাস্থ্যকর'">
+								</div>
+							</div>
+							<a href="https://www.jugantor.com/national/1123566" class="linkOverlay"></a>
+						</div>
+
+						<!-- Article 2 -->
+						<div class="media positionRelative marginB5">
+							<div class="media-body">
+								<h4 class="title10 marginT2">ঢাকাসহ ১৭ জেলায় বজ্রবৃষ্টির আভাস</h4>
+								<p class="desktopSummary marginT10 hidden-xs">ঢাকাসহ দেশের ১৭ জেলার ওপর দিয়ে দুপুরের মধ্যে ঝড়ো বাতাস বয়ে যাওয়ার আশঙ্কা রয়েছে। সেইসঙ্গে বৃষ্টি অথবা বজ্রবৃষ্টি হতে পারে ...</p>
+								<p class="desktopTime marginT15"><i class="fa fa-regular fa-clock"></i> ০৭ জুলাই ২০২৬, ০৭:৫৯ এএম</p>
+							</div>
+							<div class="media-right">
+								<div class="positionRelative">
+									<img class="media-object borderRadius5 xs-width130" src="https://cdn.jugantor.com/assets/news_photos/2026/07/07/medium/656565-68cb65c052041-6a4c5d93e7f4f.jpg" width="300" alt="ঢাকাসহ ১৭ জেলায় বজ্রবৃষ্টির আভাস">
+								</div>
+							</div>
+							<a href="https://www.jugantor.com/national/1123557" class="linkOverlay"></a>
+						</div>
+
+						<!-- Article 3 -->
+						<div class="media positionRelative marginB5">
+							<div class="media-body">
+								<h4 class="title10 marginT2">সৌদি প্রবাসীদের যে বিষয়ে সতর্ক করল দূতাবাস</h4>
+								<p class="desktopSummary marginT10 hidden-xs">সৌদি আরবে অবস্থিত বাংলাদেশি প্রবাসীদের অপরাধ বিষয়ে অভিযোগের ক্ষেত্রে সতর্কতা অবলম্বন করতে বলেছে রিয়াদের বাংলাদেশ দূতাবাস ...</p>
+								<p class="desktopTime marginT15"><i class="fa fa-regular fa-clock"></i> ০৭ জুলাই ২০২৬, ০১:১৩ এএম</p>
+							</div>
+							<div class="media-right">
+								<div class="positionRelative">
+									<img class="media-object borderRadius5 xs-width130" src="https://cdn.jugantor.com/assets/news_photos/2026/07/07/medium/Untitled-6-67618962bd759-6a4bfe6a20b98.jpg" width="300" alt="সৌদি প্রবাসীদের যে বিষয়ে সতর্ক করল দূতাবাস">
+								</div>
+							</div>
+							<a href="https://www.jugantor.com/national/1123354" class="linkOverlay"></a>
+						</div>
+
+						<!-- Article 4 -->
+						<div class="media positionRelative marginB5">
+							<div class="media-body">
+								<h4 class="title10 marginT2">তারেক রহমানকে ইইউর গ্লোবাল গেটওয়ে ফোরামে মূল বক্তব্য দেওয়ার আমন্ত্রণ</h4>
+								<p class="desktopSummary marginT10 hidden-xs">ইউরোপীয় কমিশনের প্রেসিডেন্ট উরসুলা ফন ডের লায়েন প্রধানমন্ত্রী তারেক রহমানকে গ্লোবাল গেটওয়ে ফোরাম ২০২৭-এ মূল বক্তব্য দেওয়ার জন্য আমন্ত্রণ জানিয়েছেন ...</p>
+								<p class="desktopTime marginT15"><i class="fa fa-regular fa-clock"></i> ০৬ জুলাই ২০২৬, ১১:৪৯ পিএম</p>
+							</div>
+							<div class="media-right">
+								<div class="positionRelative">
+									<img class="media-object borderRadius5 xs-width130" src="https://cdn.jugantor.com/assets/news_photos/2026/07/06/medium/pm2-6a4bea9c9b8cd.jpg" width="300" alt="তারেক রহমানকে ইইউর গ্লোবাল গেটওয়ে ফোরামে মূল বক্তব্য দেওয়ার আমন্ত্রণ">
+								</div>
+							</div>
+							<a href="https://www.jugantor.com/national/1123350" class="linkOverlay"></a>
+						</div>
+
+						<!-- Article 5 -->
+						<div class="media positionRelative marginB5">
+							<div class="media-body">
+								<h4 class="title10 marginT2">বড়কুঠি রাজশাহী বিশ্ববিদ্যালয়ের কাছে হস্তান্তর করার চেষ্টা করা হবে: ভূমিমন্ত্রী</h4>
+								<p class="desktopSummary marginT10 hidden-xs">বড়কুঠি রাজশাহী অঞ্চলের অন্যতম প্রাচীন ও ঐতিহ্যবাহী নিদর্শন। এখান থেকেই রাজশাহী বিশ্ববিদ্যালয়ের যাত্রা শুরু হয় ...</p>
+								<p class="desktopTime marginT15"><i class="fa fa-regular fa-clock"></i> ০৬ জুলাই ২০২৬, ১০:৫৩ পিএম</p>
+							</div>
+							<div class="media-right">
+								<div class="positionRelative">
+									<img class="media-object borderRadius5 xs-width130" src="https://cdn.jugantor.com/assets/news_photos/2026/07/06/medium/RuPic-6a4bdd6e34b49.jpeg" width="300" alt="বড়কুঠি রাজশাহী বিশ্ববিদ্যালয়ের কাছে হস্তান্তর করার চেষ্টা করা হবে: ভূমিমন্ত্রী">
+								</div>
+							</div>
+							<a href="https://www.jugantor.com/national/1123346" class="linkOverlay"></a>
+						</div>
+
+						<!-- Article 6 -->
+						<div class="media positionRelative marginB5">
+							<div class="media-body">
+								<h4 class="title10 marginT2">দেশের স্বার্থে সবাইকে আরও দায়িত্বশীল ও সচেতন হতে হবে: প্রধানমন্ত্রী</h4>
+								<p class="desktopSummary marginT10 hidden-xs">প্রধানমন্ত্রী তারেক রহমান বলেছেন, সমস্যা থাকবেই। সেই সমস্যার মধ্য দিয়েই আমাদের এগিয়ে যেতে হবে ...</p>
+								<p class="desktopTime marginT15"><i class="fa fa-regular fa-clock"></i> ০৬ জুলাই ২০২৬, ১০:৪৬ পিএম</p>
+							</div>
+							<div class="media-right">
+								<div class="positionRelative">
+									<img class="media-object borderRadius5 xs-width130" src="https://cdn.jugantor.com/assets/news_photos/2026/07/06/medium/PM-6a4bdbed5e530.jpg" width="300" alt="দেশের স্বার্থে সবাইকে আরও দায়িত্বশীল ও সচেতন হতে হবে: প্রধানমন্ত্রী">
+								</div>
+							</div>
+							<a href="https://www.jugantor.com/national/1123339" class="linkOverlay"></a>
+						</div>
+
+						<!-- Article 7 -->
+						<div class="media positionRelative marginB5">
+							<div class="media-body">
+								<h4 class="title10 marginT2">মিরপুরে সরকারি অফিসার্স কোয়ার্টারে আগুন, নিয়ন্ত্রণে ৬ ইউনিট</h4>
+								<p class="desktopSummary marginT10 hidden-xs">আজ রাত ৮টা ২ মিনিটে মিরপুর-৬ নম্বরে সরকারি অফিসার্স কোয়ার্টারে আগুন লাগার খবর পাওয়া গেছে ...</p>
+								<p class="desktopTime marginT15"><i class="fa fa-regular fa-clock"></i> ০৬ জুলাই ২০২৬, ১০:৩৮ পিএম</p>
+							</div>
+							<div class="media-right">
+								<div class="positionRelative">
+									<img class="media-object borderRadius5 xs-width130" src="https://cdn.jugantor.com/assets/news_photos/2026/07/06/medium/Agun-6783b437d08b9-6a4bd9f49e376.jpg" width="300" alt="মিরপুরে সরকারি অফিসার্স কোয়ার্টারে আগুন, নিয়ন্ত্রণে ৬ ইউনিট">
+								</div>
+							</div>
+							<a href="https://www.jugantor.com/national/1123330" class="linkOverlay"></a>
+						</div>
+
+						<!-- Article 8 -->
+						<div class="media positionRelative marginB5">
+							<div class="media-body">
+								<h4 class="title10 marginT2">কয়েকটি জেলায় বন্যার আভাস</h4>
+								<p class="desktopSummary marginT10 hidden-xs">আগামী কয়েক দিনে দেশের বিভিন্ন নদ-নদীর পানি বৃদ্ধি পাওয়ার আশঙ্কা রয়েছে। বন্যা পূর্বাভাস ও সতর্কীকরণ কেন্দ্র এই তথ্য জানিয়েছে ...</p>
+								<p class="desktopTime marginT15"><i class="fa fa-regular fa-clock"></i> ০৬ জুলাই ২০২৬, ১০:২৪ পিএম</p>
+							</div>
+							<div class="media-right">
+								<div class="positionRelative">
+									<img class="media-object borderRadius5 xs-width130" src="https://cdn.jugantor.com/assets/news_photos/2026/07/06/medium/Untitled-1-6a4bd6c0c7af5.jpg" width="300" alt="কয়েকটি জেলায় বন্যার আভাস">
+								</div>
+							</div>
+							<a href="https://www.jugantor.com/national/1123320" class="linkOverlay"></a>
+						</div>
+
+						<!-- Article 9 -->
+						<div class="media positionRelative marginB5">
+							<div class="media-body">
+								<h4 class="title10 marginT2">দেশে ১০ লাখ মানুষের অন্ধত্ব দূর করতে মহাপরিকল্পনা: স্বাস্থ্য প্রতিমন্ত্রী</h4>
+								<p class="desktopSummary marginT10 hidden-xs">স্বাস্থ্য প্রতিমন্ত্রী ড. এম এ মুহিত বলেছেন, দেশে ছানির অভাবে দৃষ্টিহীন হয়ে পড়া ১০ লাখ মানুষের অন্ধত্ব দূর করতে মহাপরিকল্পনা নেওয়া হয়েছে ...</p>
+								<p class="desktopTime marginT15"><i class="fa fa-regular fa-clock"></i> ০৬ জুলাই ২০২৬, ১০:০২ পিএম</p>
+							</div>
+							<div class="media-right">
+								<div class="positionRelative">
+									<img class="media-object borderRadius5 xs-width130" src="https://cdn.jugantor.com/assets/news_photos/2026/07/06/medium/Eye-Summit-6a4bd19b63370.jpg" width="300" alt="দেশে ১০ লাখ মানুষের অন্ধত্ব দূর করতে মহাপরিকল্পনা: স্বাস্থ্য প্রতিমন্ত্রী">
+								</div>
+							</div>
+							<a href="https://www.jugantor.com/national/1123317" class="linkOverlay"></a>
+						</div>
+
+						<!-- Article 10 -->
+						<div class="media positionRelative marginB5">
+							<div class="media-body">
+								<h4 class="title10 marginT2">প্রাথমিক বিদ্যালয়ে প্রধানমন্ত্রীর লেখা বই সংরক্ষণের নির্দেশনা বাতিল</h4>
+								<p class="desktopSummary marginT10 hidden-xs">দেশের সব সরকারি প্রাথমিক বিদ্যালয়ে 'প্রেসিডেন্ট জিয়া: রাজনৈতিক জীবনী', 'বেগম খালেদা জিয়া' সংক্রান্ত বই সংরক্ষণের নির্দেশনা বাতিল করা হয়েছে ...</p>
+								<p class="desktopTime marginT15"><i class="fa fa-regular fa-clock"></i> ০৬ জুলাই ২০২৬, ১০:০৪ পিএম</p>
+							</div>
+							<div class="media-right">
+								<div class="positionRelative">
+									<img class="media-object borderRadius5 xs-width130" src="https://cdn.jugantor.com/assets/news_photos/2026/07/06/medium/Untitled-9-6a4bcf43488d3.jpg" width="300" alt="প্রাথমিক বিদ্যালয়ে প্রধানমন্ত্রীর লেখা বই সংরক্ষণের নির্দেশনা বাতিল">
+								</div>
+							</div>
+							<a href="https://www.jugantor.com/national/1123314" class="linkOverlay"></a>
+						</div>
+
+						<!-- Article 11 -->
+						<div class="media positionRelative marginB5">
+							<div class="media-body">
+								<h4 class="title10 marginT2">গাবতলীর ভিএইচটি সেন্টারে চালু হচ্ছে ওয়ান স্টপ সার্ভিস: কৃষিমন্ত্রী</h4>
+								<p class="desktopSummary marginT10 hidden-xs">কৃষিমন্ত্রী মোহাম্মদ আমিন উর রশিদ বলেছেন, কৃষি পণ্য রপ্তানির সব ধরনের প্রক্রিয়া একই ছাদের নিচে পাওয়া যাবে ...</p>
+								<p class="desktopTime marginT15"><i class="fa fa-regular fa-clock"></i> ০৬ জুলাই ২০২৬, ০৯:৫২ পিএম</p>
+							</div>
+							<div class="media-right">
+								<div class="positionRelative">
+									<img class="media-object borderRadius5 xs-width130" src="https://cdn.jugantor.com/assets/news_photos/2026/07/06/medium/Untitled-1-6a4bcf29d477a.jpg" width="300" alt="গাবতলীর ভিএইচটি সেন্টারে চালু হচ্ছে ওয়ান স্টপ সার্ভিস: কৃষিমন্ত্রী">
+								</div>
+							</div>
+							<a href="https://www.jugantor.com/national/1123313" class="linkOverlay"></a>
+						</div>
+
+						<!-- Article 12 -->
+						<div class="media positionRelative marginB5">
+							<div class="media-body">
+								<h4 class="title10 marginT2">বাষ্পতাপ প্লান্ট উদ্বোধন করলেন কৃষিমন্ত্রী</h4>
+								<p class="desktopSummary marginT10 hidden-xs">বাংলাদেশ কৃষি উন্নয়ন করপোরেশনের (বিএডিসি) অত্যাধুনিক বাষ্পতাপ (ভ্যাপার হিট ট্রিটমেন্ট) প্লান্ট উদ্বোধন করলেন কৃষিমন্ত্রী ...</p>
+								<p class="desktopTime marginT15"><i class="fa fa-regular fa-clock"></i> ০৬ জুলাই ২০২৬, ০৯:৪৫ পিএম</p>
+							</div>
+							<div class="media-right">
+								<div class="positionRelative">
+									<img class="media-object borderRadius5 xs-width130" src="https://cdn.jugantor.com/assets/news_photos/2026/07/06/medium/agri-min-6a4bcd9977384.jpg" width="300" alt="বাষ্পতাপ প্লান্ট উদ্বোধন করলেন কৃষিমন্ত্রী">
+								</div>
+							</div>
+							<a href="https://www.jugantor.com/national/1123309" class="linkOverlay"></a>
+						</div>
+
+						<!-- Article 13 -->
+						<div class="media positionRelative marginB5">
+							<div class="media-body">
+								<h4 class="title10 marginT2">বাংলাদেশের উন্নয়নযাত্রায় পাশে থাকার প্রতিশ্রুতি জাইকা প্রেসিডেন্টের</h4>
+								<p class="desktopSummary marginT10 hidden-xs">জাপান ইন্টারন্যাশনাল কো-অপারেশন এজেন্সির (জাইকা) প্রেসিডেন্ট ড. তানাকা আকিহিকো প্রধানমন্ত্রী তারেক রহমানের সঙ্গে সাক্ষাৎ করেছেন ...</p>
+								<p class="desktopTime marginT15"><i class="fa fa-regular fa-clock"></i> ০৬ জুলাই ২০২৬, ০৯:৪০ পিএম</p>
+							</div>
+							<div class="media-right">
+								<div class="positionRelative">
+									<img class="media-object borderRadius5 xs-width130" src="https://cdn.jugantor.com/assets/news_photos/2026/07/06/medium/Untitled-1-6a4bcc8bcd51d.jpg" width="300" alt="বাংলাদেশের উন্নয়নযাত্রায় পাশে থাকার প্রতিশ্রুতি জাইকা প্রেসিডেন্টের">
+								</div>
+							</div>
+							<a href="https://www.jugantor.com/national/1123306" class="linkOverlay"></a>
+						</div>
+
+						<!-- Article 14 -->
+						<div class="media positionRelative marginB5">
+							<div class="media-body">
+								<h4 class="title10 marginT2">'সরকারের সঙ্গে সমন্বয় করে স্থানীয় নির্বাচনের তফশিল দেবে ইসি'</h4>
+								<p class="desktopSummary marginT10 hidden-xs">নির্বাচন কমিশনার আব্দুর রহমানেল মাছউদ বলেছেন, স্থানীয় সরকার নির্বাচনের তফশিল ঘোষণার আগে সরকারের সঙ্গে সমন্বয় করা হবে ...</p>
+								<p class="desktopTime marginT15"><i class="fa fa-regular fa-clock"></i> ০৬ জুলাই ২০২৬, ০৮:৩৫ পিএম</p>
+							</div>
+							<div class="media-right">
+								<div class="positionRelative">
+									<img class="media-object borderRadius5 xs-width130" src="https://cdn.jugantor.com/assets/news_photos/2026/07/06/medium/Untitled-1-6a4bbd47ba9d2.jpg" width="300" alt="'সরকারের সঙ্গে সমন্বয় করে স্থানীয় নির্বাচনের তফশিল দেবে ইসি'">
+								</div>
+							</div>
+							<a href="https://www.jugantor.com/national/1123286" class="linkOverlay"></a>
+						</div>
+
+						<!-- Article 15 -->
+						<div class="media positionRelative marginB5">
+							<div class="media-body">
+								<h4 class="title10 marginT2">জাতীয় সঞ্চয় স্কিমের সুদহার নির্ধারণ করল বাংলাদেশ ব্যাংক</h4>
+								<p class="desktopSummary marginT10 hidden-xs">সুদের হার অপরিবর্তিত রাখার ফলে নতুন বিনিয়োগকারী এবং যেসব গ্রাহক নির্ধারিত সময়ে স্কিম নবায়ন করেননি তারাও আগের মতো সুদ পাবেন ...</p>
+								<p class="desktopTime marginT15"><i class="fa fa-regular fa-clock"></i> ০৬ জুলাই ২০২৬, ০৮:১৫ পিএম</p>
+							</div>
+							<div class="media-right">
+								<div class="positionRelative">
+									<img class="media-object borderRadius5 xs-width130" src="https://cdn.jugantor.com/assets/news_photos/2026/07/06/medium/Untitled-1-678de3bca9506-(3)-6a4bb885717b5.jpg" width="300" alt="জাতীয় সঞ্চয় স্কিমের সুদহার নির্ধারণ করল বাংলাদেশ ব্যাংক">
+								</div>
+							</div>
+							<a href="https://www.jugantor.com/national/1123280" class="linkOverlay"></a>
+						</div>
+
+					</div><!-- /desktopSectionListMedia2 -->
+
+					<!-- Load more button -->
+					<div class="text-center marginT20 marginB30">
+						<a href="national.html" class="btnLoadMore">আরও পড়ুন</a>
+					</div>
+
+				</div><!-- /col-md-9 -->
+
+			</div><!-- /row marginLR-10 -->
+		</section>
+
+	</main>
+	<!-- ===================== MAIN CONTENT END ===================== -->
+
+
+	<!-- ===================== FOOTER ===================== -->
+	<footer class="desktopFooter hidden-xs hidden-print">
+		<div class="container marginT30">
+			<div class="row desktopFlexRow">
+				<div class="col-sm-12 col-md-12">
+					<div class="borderC1B1 paddingB20">
+						<a aria-label="Logo" href="index.html"><img src="https://cdn.jugantor.com/uploads/settings/logo-black.png" alt="Logo" height="50"></a>
+					</div>
+				</div>
+				<div class="col-sm-8 col-md-8">
+					<div class="footerBottom">
+						<p class="title10">সম্পাদক : আবদুল হাই শিকদার <i class="fa fa-grip-lines-vertical title2_0 marginL5 marginR5"></i> প্রকাশক : সালমা ইসলাম</p>
+						<p><span class="todaysYear">২০২৬</span> <i class="fa fa-copyright title1_4"></i> যুগান্তর কর্তৃক সর্বস্বত্ব স্বত্বাধিকার সংরক্ষিত</p>
+					</div>
+				</div>
+				<div class="col-sm-4 col-md-4">
+					<div class="followDiv h100P">
+						<p class="marginB0 title11 marginT10">অনুসরণ করুন</p>
+						<div class="topSocialIcon">
+							<a aria-label="Facebook" href="https://www.facebook.com/DainikJugantor" target="_blank" class="fa fa-brands fa-facebook borderRadius0"></a>
+							<a aria-label="Twitter" href="https://twitter.com/DailyJugantor" target="_blank" class="fa fa-brands fa-x-twitter borderRadius0"></a>
+							<a aria-label="Linkedin" href="https://www.linkedin.com/company/daily-jugantor/" target="_blank" class="fa fa-brands fa-linkedin borderRadius0"></a>
+							<a aria-label="Instagram" href="https://www.instagram.com/dainikjugantor/" target="_blank" class="fa fa-brands fa-instagram borderRadius0"></a>
+							<a aria-label="Youtube" href="https://www.youtube.com/c/DailyJugantorYouTube?sub_confirmation=1" target="_blank" class="fa fa-brands fa-youtube borderRadius0"></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-12">
+					<div class="footerBottom paddingT0 paddingB0">
+						<div class="linkDivFooter paddingLR0">
+							<a class="hoverBlue" aria-label="About" href="https://www.jugantor.com/about">আমাদের সম্পর্কে</a>
+							<a class="hoverBlue" aria-label="Contact" href="https://www.jugantor.com/contact">যোগাযোগ</a>
+							<a class="hoverBlue" aria-label="Terms" href="https://www.jugantor.com/terms">ব্যবহারের শর্তাবলি</a>
+							<a class="hoverBlue" aria-label="Privacy" href="https://www.jugantor.com/privacy-policy">গোপনীয়তার নীতি</a>
+							<a class="hoverBlue" aria-label="Rate Card" href="https://www.jugantor.com/advertisement">বিজ্ঞাপন</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- ===================== FOOTER END ===================== -->
+
+	<!-- Scroll to top -->
+	<span onclick="gotop()" class="go-to-top hidden-print" style="display: none;"><i class="fa fa-angle-up" aria-hidden="true"></i></span>
+
+
+	<!-- ===================== SCRIPTS ===================== -->
+	<!-- jQuery -->
+	<script type="text/javascript" src="https://www.jugantor.com/assets/vendors/jquery/jquery-3.7.1.min.js"></script>
+	<!-- Bootstrap 3.7 JS -->
+	<script type="text/javascript" src="https://www.jugantor.com/assets/vendors/bootstrap3.7/js/bootstrap.min.js"></script>
+	<!-- Datepicker -->
+	<script type="text/javascript" src="https://www.jugantor.com/assets/vendors/datepicker/bootstrap-datepicker.min.js"></script>
+	<!-- FlexSlider -->
+	<script defer src="https://www.jugantor.com/assets/vendors/flex-gallery/jquery.flexslider.js"></script>
+
+	<script>
+		/* =========================================================
+		   STICKY NAVBAR ON SCROLL (desktop only)
+		   ========================================================= */
+		(function () {
+			var width = $(window).width();
+			if (width < 768) return;
+
+			document.addEventListener("DOMContentLoaded", function () {
+				window.addEventListener('scroll', function () {
+					var navbar = document.getElementById('navbar_top');
+					if (!navbar) return;
+					if (window.scrollY > 80) {
+						navbar.classList.add('fixed-top');
+						document.body.style.paddingTop = navbar.offsetHeight + 'px';
+						$('.stickyHeaderLogoDiv').removeClass('col-md-1').addClass('col-md-2');
+						$('.stickyHeaderMenuDiv').removeClass('col-md-10').addClass('col-md-9');
+						$('.stickyLogo').show();
+						$('.desktopStickyBar').show();
+					} else {
+						navbar.classList.remove('fixed-top');
+						document.body.style.paddingTop = '0';
+						$('.stickyHeaderLogoDiv').removeClass('col-md-2').addClass('col-md-1');
+						$('.stickyHeaderMenuDiv').removeClass('col-md-9').addClass('col-md-10');
+						$('.stickyLogo').hide();
+						$('.desktopStickyBar').hide();
+					}
+				});
+			});
+		})();
+
+		/* =========================================================
+		   DROPDOWN HOVER OPEN (desktop)
+		   ========================================================= */
+		$(function () {
+			$('.dropdown').hover(
+				function () { $(this).addClass('open'); },
+				function () { $(this).removeClass('open'); }
+			);
+		});
+
+		/* =========================================================
+		   DEVICE-WISE CLEANUP
+		   ========================================================= */
+		$(function () {
+			var width = $(window).width();
+			if (width >= 768) { $('.visible-xs').remove(); }
+			if (width <= 767) { $('.hidden-xs').remove(); }
+		});
+
+		/* =========================================================
+		   MEGA MENU TOGGLE
+		   ========================================================= */
+		$(function () {
+			$('.allMenu').click(function () {
+				$('.megaMenu').toggle(100);
+				$('.allMenu').toggle();
+			});
+		});
+
+		/* =========================================================
+		   GO TO TOP BUTTON
+		   ========================================================= */
+		$(window).scroll(function () {
+			if ($(window).scrollTop() > 300) {
+				$('.go-to-top').show();
+			} else {
+				$('.go-to-top').hide();
+			}
+		});
+		function gotop() {
+			var scrollStep = -window.scrollY / 300,
+				scrollInterval = setInterval(function () {
+					if (window.scrollY != 0) {
+						window.scrollBy(0, scrollStep);
+					} else {
+						clearInterval(scrollInterval);
+					}
+				}, 2);
+		}
+
+		/* =========================================================
+		   FLEXSLIDER INITIALIZATION
+		   ========================================================= */
+		$(window).on('load', function () {
+			if ($.fn.flexslider) {
+				$('.flexslider2').flexslider({
+					controlNav: false,
+					animation: "slide",
+					animationLoop: false,
+					directionNav: true,
+					itemMargin: 0,
+					pausePlay: true,
+					nextText: "",
+					prevText: "",
+					start: function () {
+						$('body').removeClass('loading');
+						$('.flexslider2MainDiv').css({ 'visibility': 'visible', 'height': 'auto' });
+					}
+				});
+			}
+		});
+
+		/* =========================================================
+		   ENGLISH → BANGLA DIGIT CONVERSION
+		   ========================================================= */
+		function englishToBangla(val) {
+			var map = {
+				'PM': 'পিএম', 'AM': 'এএম',
+				'0': '০', '1': '১', '2': '২', '3': '৩', '4': '৪',
+				'5': '৫', '6': '৬', '7': '৭', '8': '৮', '9': '৯',
+				'Sat': 'শনিবার', 'Sun': 'রবিবার', 'Mon': 'সোমবার',
+				'Tue': 'মঙ্গলবার', 'Wed': 'বুধবার', 'Thu': 'বৃহস্পতিবার', 'Fri': 'শুক্রবার',
+				'Jan': 'জানুয়ারি', 'Feb': 'ফেব্রুয়ারি', 'Mar': 'মার্চ', 'Apr': 'এপ্রিল',
+				'May': 'মে', 'Jun': 'জুন', 'Jul': 'জুলাই', 'Aug': 'আগস্ট',
+				'Sep': 'সেপ্টেম্বর', 'Oct': 'অক্টোবর', 'Nov': 'নভেম্বর', 'Dec': 'ডিসেম্বর'
+			};
+			var str = '' + val;
+			for (var x in map) {
+				str = str.replace(new RegExp(x, 'g'), map[x]);
+			}
+			return str;
+		}
+		$(function () {
+			$('.todaysDate').html(englishToBangla('Mon, 07 Jul 2026'));
+			$('.todaysYear').html(englishToBangla('2026'));
+		});
+
+		/* =========================================================
+		   COUNTRY CATEGORY LINK
+		   ========================================================= */
+		$(function () {
+			$('.countryCategory').click(function () {
+				window.location.href = $(this).data('country-url');
+			});
+		});
+	</script>
+</body>
+</html>

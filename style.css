@@ -1,0 +1,2992 @@
+/* =========================================================
+   JUGANTOR — PRACTICE LAYOUT STYLESHEET
+   Educational front-end assignment (raw HTML/CSS/JS).
+   All design, colors, layouts, and responsiveness live here.
+   ---------------------------------------------------------
+   Sections:
+   1.  Root tokens (colors, fonts, spacing helpers)
+   2.  Base resets & typography
+   3.  Utility classes (margin/padding/text helpers)
+   4.  Desktop header (logo bar + date + social)
+   5.  Navbar (sticky behavior, main menu, "More" dropdown)
+   6.  Mega menu panel
+   7.  Section titles & dividers
+   8.  News cards (thumbnail, media, captions, link overlay)
+   9.  FWC event widget (countdown, quick links, scroll list)
+   10. Trending topics
+   11. Lead news + secondary headlines
+   12. National / International / Politics / Country news
+   13. Sidebar (gold-price flexslider, Latest/Popular tabs)
+   14. Poll widget
+   15. Economics / Sports / Islam & Life / Entertainment / Jobs
+   16. Videos grid
+   17. Photos carousel + grid
+   18. Four-column category grid
+   19. Footer
+   20. Go-to-top button
+   21. FlexSlider overrides
+   22. Responsive breakpoints
+   ========================================================= */
+
+
+/* =========================================================
+   1. ROOT TOKENS
+   ========================================================= */
+
+   @import url('https://fonts.maateen.me/adorsho-lipi/font.css');
+
+@font-face {
+    font-family: 'AdorshoLipi';
+    src: url('fonts/AdorshoLipi.woff2') format('woff2'),
+         url('fonts/AdorshoLipi.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+:root {
+    --brand-red: rgb(184, 0, 0);
+    --brand-red-dark: rgb(150, 0, 0);
+    --brand-red-light: rgb(220, 30, 30);
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-1: #5c5b5b;          /* secondary text */
+    --color-2: #f5f5f5;          /* alt background */
+    --color-3: #e0e0e0;          /* borders */
+    --color-link: #0066cc;
+    --bg-yellow: #fff8d6;        /* shoulder yellow */
+    --font-bn: 'AdorshoLipi', 'Noto Serif Bengali', 'Calibri', 'SutonnyMJ', 'Siyamrupali', 'Arial', Georgia, "Times New Roman", Times, serif;
+    --radius-5: 5px;
+    --radius-0: 0;
+    --shadow-card: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+
+/* =========================================================
+   2. BASE RESETS & TYPOGRAPHY
+   ========================================================= */
+    * { box-sizing: border-box; }
+
+
+body {
+    font-family: var(--font-bn);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-black);
+    background: var(--color-white);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus { outline: thin dotted; }
+
+img { max-width: 100%; height: 50; }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-bn);
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0;
+}
+
+p { margin: 0 0 10px; }
+
+ul { list-style: none; padding: 0; margin: 0; }
+
+
+/* =========================================================
+   3. UTILITY CLASSES
+   (Match the class names used in the HTML so the existing
+   markup "just works" without inline styles.)
+   ========================================================= */
+
+/* Backgrounds */
+.bgWhite, .bgWHite, .bgWhiteImp { background: var(--color-white) !important; }
+.bg2 { background: var(--color-2); }
+.bgRed { background: var(--brand-red); }
+.bgUnset { background: transparent !important; }
+.bgImageNone, .bgImgUnset { background-image: none !important; }
+
+/* Colors */
+.colorBlack { color: var(--color-black) !important; }
+.colorWhite { color: var(--color-white) !important; }
+.color1 { color: var(--color-1); }
+
+/* Text decoration */
+.textDecorationNone { text-decoration: none !important; }
+.hoverBlue:hover { color: var(--color-link) !important; text-decoration: none; }
+.hoverRed:hover { color: var(--brand-red) !important; text-decoration: none; }
+.hoverBlack:hover { color: var(--color-black) !important; text-decoration: none; }
+
+/* Text alignment */
+.text-center, .textCenter { text-align: center; }
+.text-left { text-align: left; }
+.text-right, .textRight { text-align: right; }
+.pull-right { float: right !important; }
+.pull-left { float: left !important; }
+.verticalAlignMiddle { vertical-align: middle; }
+.displayInlineBlock { display: inline-block; }
+
+/* Cursor */
+.cursorPointer { cursor: pointer; }
+
+/* Position */
+.positionRelative { position: relative; }
+.positionAbsolute { position: absolute; }
+
+/* Display */
+.w100P { width: 100% !important; }
+.h100P { height: 100% !important; }
+.h50 { height: 50px; }
+.w17 { width: 17px; text-align: center; }
+.w300 { width: 300px; }
+.overflowHidden { overflow: hidden; }
+
+/* Margins */
+.marginT0 { margin-top: 0 !important; }
+.marginT5 { margin-top: 5px; }
+.marginT10 { margin-top: 10px; }
+.marginT15 { margin-top: 15px; }
+.marginT18 { margin-top: 18px; }
+.marginT20 { margin-top: 20px; }
+.marginT30 { margin-top: 30px; }
+.marginT40 { margin-top: 40px; }
+.marginT60 { margin-top: 60px; }
+.marginT-1 { margin-top: -1px; }
+.marginT-5 { margin-top: -5px; }
+.marginT-10 { margin-top: -10px; }
+.marginT-50 { margin-top: -50px; }
+.marginB0 { margin-bottom: 0 !important; }
+.marginB5 { margin-bottom: 5px; }
+.marginB10 { margin-bottom: 10px; }
+.marginB15 { margin-bottom: 15px; }
+.marginB20 { margin-bottom: 20px; }
+.marginB30 { margin-bottom: 30px; }
+.marginB40 { margin-bottom: 40px; }
+.marginB50 { margin-bottom: 50px; }
+.marginL5 { margin-left: 5px; }
+.marginL10 { margin-left: 10px; }
+.marginR5 { margin-right: 5px; }
+.marginR10 { margin-right: 10px; }
+.marginLR-10 { margin-left: -10px; margin-right: -10px; }
+.marginLR-15 { margin-left: -15px; margin-right: -15px; }
+.marginLR-7 { margin-left: -7px; margin-right: -7px; }
+.marginLR0 { margin-left: 0 !important; margin-right: 0 !important; }
+.marginCenter { margin-left: auto; margin-right: auto; }
+
+/* Padding */
+.padding0 { padding: 0 !important; }
+.padding5 { padding: 5px; }
+.padding10 { padding: 10px; }
+.padding15 { padding: 15px; }
+.padding20 { padding: 20px; }
+.paddingB30 { padding-bottom: 30px; }
+.paddingB40 { padding-bottom: 40px; }
+.paddingT0 { padding-top: 0 !important; }
+.paddingT5 { padding-top: 5px; }
+.paddingT7 { padding-top: 7px; }
+.paddingT10 { padding-top: 10px; }
+.paddingT30 { padding-top: 30px; }
+.paddingT60 { padding-top: 60px; }
+.paddingB0 { padding-bottom: 0 !important; }
+.paddingB5 { padding-bottom: 5px; }
+.paddingB10 { padding-bottom: 10px; }
+.paddingB20 { padding-bottom: 20px; }
+.paddingL0 { padding-left: 0 !important; }
+.paddingL5 { padding-left: 5px; }
+.paddingLR0 { padding-left: 0 !important; padding-right: 0 !important; }
+.paddingLR5 { padding-left: 5px; padding-right: 5px; }
+.paddingLR7 { padding-left: 7px; padding-right: 7px; }
+.paddingLR10 { padding-left: 10px; padding-right: 10px; }
+.paddingLR15 { padding-left: 15px; padding-right: 15px; }
+.paddingLR20 { padding-left: 20px; padding-right: 20px; }
+.paddingR5 { padding-right: 5px; }
+.paddingR10 { padding-right: 10px; }
+.paddingTB3 { padding-top: 3px; padding-bottom: 3px; }
+.paddingTB5 { padding-top: 5px; padding-bottom: 5px; }
+.paddingLR-5 { padding-left: -5px; padding-right: -5px; }
+.paddingLR-10 { padding-left: -10px; padding-right: -10px; }
+
+/* Borders */
+.border0 { border: 0 !important; }
+.borderNone { border: none !important; }
+.borderC1T1 { border-top: 1px solid var(--color-3); }
+.borderC1B1 { /*border-bottom: 1px solid var(--color-3);*/ }
+.borderC1B2 { /*border-bottom: 2px solid var(--color-3); */}
+.borderC1R1 { border-right: 1px solid var(--color-3);}
+.borderC2-1 { border: 1px solid var(--color-3); }
+.borderC2B1 { /*border-bottom: 1px solid var(--color-3);*/ }
+.borderLastItemNone .desktopSectionLead:last-child { border-bottom: none; }
+.lastItemNone:last-child { border-bottom: none; }
+.doubleBorder { /*border-left: 1px solid var(--color-3); border-right: 1px solid var(--color-3);*/ }
+
+/* Radius */
+.borderRadius0 { border-radius: var(--radius-0) !important; }
+.borderRadius5, .borderTRadius5, .borderBRadius5, .borderTRadius0 { border-radius: var(--radius-5); }
+.borderTRadius5 { border-top-left-radius: var(--radius-5); border-top-right-radius: var(--radius-5); border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+.borderBRadius5 { border-bottom-left-radius: var(--radius-5); border-bottom-right-radius: var(--radius-5); border-top-left-radius: 0; border-top-right-radius: 0; }
+.borderTRadius0 { border-top-left-radius: 0; border-top-right-radius: 0; }
+
+/* Typography sizes (Bengali title hierarchy) */
+.title1_4 { font-size: 14px; }
+.title1_6 { font-size: 16px; }
+.title2_0 { font-size: 20px; }
+.title2_3 { font-size: 23px; }
+.title8 { font-size: 28px; line-height: 1.25; font-weight: 700; }
+.title9 { font-size: 22px; line-height: 1.3; font-weight: 700; }
+.title10 {
+    font-size: 2.2rem !important;
+    line-height: 3.2rem !important;
+}
+.title11 {
+    font-size: 2.2rem !important;
+    line-height: 3.3rem !important;
+    /* font-size: 2.3rem !important; */
+    /* line-height: 2.7rem !important; */
+}
+.title12 { font-size: 15px; line-height: 1.45; font-weight: 500; }
+.fontSize14 { font-size: 14px; }
+.fontUpperCase { text-transform: uppercase; }
+.lineHeight35 { line-height: 35px; }
+
+/* Shoulders (kicker labels above headlines) */
+.shoulder {
+    color: var(--brand-red);
+}
+.dot { font-size: 4px; vertical-align: middle; margin: 0 6px; color: var(--color-3); }
+
+/* Scrollbar */
+.scrollbar1 { max-height: 380px; overflow-y: auto; }
+.scrollbar1::-webkit-scrollbar { width: 6px; }
+.scrollbar1::-webkit-scrollbar-track { background: transparent; }
+.scrollbar1::-webkit-scrollbar-thumb { background: var(--color-3); border-radius: 3px; }
+
+/* Bootstrap thumbnail reset (we control it) */
+.thumbnail {
+    display: block;
+    padding: 4px;
+    margin-bottom: 20px;
+    background: var(--color-white);
+    border-radius: var(--radius-5);
+    transition: border-color 0.2s ease;
+}
+.thumbnail > img, .thumbnail a > img { display: block; max-width: 100%; height: auto; }
+.thumbnail .caption { padding: 9px; color: var(--color-black); }
+
+/* Media object (Bootstrap 3) */
+.media { margin-top: 15px; }
+.media:first-child { margin-top: 0; }
+.media, .media-body { overflow: hidden; zoom: 1; }
+.media-body { width: auto; }
+.media-left, .media-right, .media-body { display: table-cell; vertical-align: top; }
+.media-left { padding-right: 10px; }
+.media-right { padding-left: 10px; }
+.media-object { display: block; max-width: 100%; }
+
+/* =========================================================
+   FIXED MEDIA LIST: CONSISTENT SIZES, Ratios & NO GRAY BOXES
+   ========================================================= */
+
+/* Parent card block configuration */
+.desktopSectionListMedia .media {
+    display: flex !important;
+    align-items: center !important;
+    padding: 12px 0 !important;
+    border-bottom: 1px solid #d8d8d8 !important;
+    position: relative !important;
+    overflow: hidden !important;
+    background-color: transparent !important; /* 👈 Strips any leaking grey fills */
+    background: none !important;
+}
+
+/* Forces the image frame container block to stay fixed at a crisp 16:9 ratio canvas */
+.desktopSectionListMedia .media-left,
+.desktopSectionListMedia .media-right {
+    width: 140px !important;
+    min-width: 140px !important;
+    max-width: 140px !important;
+    height: 80px !important;      /* Locks fixed universal proportional boundary height */
+    overflow: hidden !important;
+    background-color: transparent !important; /* 👈 Guarantees no background color leaks */
+    background: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;         /* Strips bad layout shifts */
+    margin: 0 !important;
+}
+
+/* Force elements inside left or right column slots to obey uniform layouts */
+.desktopSectionListMedia .media-left .positionRelative,
+.desktopSectionListMedia .media-right .positionRelative {
+    width: 100% !important;
+    height: 100% !important;
+    background: transparent !important;
+}
+
+/* Forces ALL layout images inside these listings to crop and fill identically */
+.desktopSectionListMedia .media-object {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* 👈 Crops image proportionally into frame without warping */
+    border-radius: 4px !important; /* Matches reference site soft layout radius corners */
+    transition: opacity 0.2s ease-in-out !important;
+    opacity: 1;
+}
+
+/* The Body/Text Block auto alignment slots */
+.desktopSectionListMedia .media-body {
+    padding-left: 0 !important;
+    padding-right: 12px !important; /* Gives breathing room space before the graphic frame */
+    text-align: left !important;
+    flex: 1 !important;
+}
+
+/* Forces the text titles to sit flush starting at the exact same coordinates */
+.desktopSectionListMedia .media-body h4.title11 {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 16px !important;
+    line-height: 1.45 !important;
+    font-weight: 600 !important;
+    color: #333333 !important;
+}
+
+/* ===== GLOBAL LIST HOVER HIGHLIGHT EFFECTS ===== */
+.desktopSectionListMedia .media:hover .media-object {
+    opacity: 0.75 !important; /* Instant premium snap-fade on thumbnail hover */
+}
+
+.desktopSectionListMedia .media:hover .media-body h4.title11 {
+    color: var(--brand-red) !important; /* Highlights title typography cleanly */
+}
+
+/* Structural Padding resets for edge content rows */
+.desktopSectionListMedia.listItemFirstPT0 .media:first-child,
+.listItemFirstPT0 .media:first-child {
+    padding-top: 0 !important;
+}
+
+.desktopSectionListMedia.listItemLastBB0 .media:last-child,
+.listItemLastBB0 .media:last-child {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+}
+/* Flex row helper */
+.desktopFlexRow { display: flex; flex-wrap: wrap; }
+
+/* Hidden helpers (Bootstrap 3 compat) */
+.hidden-print { }
+.hidden-xs { }
+.visible-xs { display: none !important; }
+
+
+/* =========================================================
+   4. DESKTOP HEADER
+   ========================================================= */
+.desktopHeader {
+    background: var(--color-white);
+    padding-bottom: 10px;
+}
+
+.desktopHeaderLogoLeftDiv {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-top: 15px;
+}
+
+.desktopSearchIcon {
+    vertical-align: middle;
+    margin-top: 3px;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: white;
+}
+
+.desktopTodayDate {
+    font-size: 14px;
+    color: var(--color-1);
+    font-weight: 500;
+}
+
+.desktopHeaderLogoRightDiv {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 15px;
+}
+.desktopHeaderLogoRightDiv a {
+    display: inline-block;
+    padding: 6px 14px;
+    border: 1px solid var(--color-3);
+    color: var(--color-black);
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: var(--radius-0);
+}
+.desktopHeaderLogoRightDiv a:hover {
+    background: var(--brand-red);
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   EXACT CLONED SOCIAL ICONS BLOCK (WITH COMPATIBLE HOVER TARGETS)
+   ========================================================================== */
+
+.topSocialIcon {
+    text-align: right;
+}
+
+.topSocialIcon a {
+    display: inline-block !important;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.topSocialIcon a:first-child {
+    margin-left: 0px;
+}
+
+.topSocialIcon a:last-child {
+    margin-right: 0px;
+}
+
+/* Updated base target to support FontAwesome 5/6 variations */
+.topSocialIcon .fa, 
+.topSocialIcon .fab, 
+.topSocialIcon .fa-brands {
+    padding: 9px 8px 8px 8px;
+    font-size: 14px;
+    width: 34px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 1px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Sharp corner overrides */
+.borderRadius0 {
+    border-radius: 0px !important;
+}
+
+/* Individual Platform Brand Colors */
+.topSocialIcon .fa-facebook {
+    border: 1px solid #F1F1F1;
+    color: #1b4a82;
+}
+
+.topSocialIcon .fa-x-twitter {
+    border: 1px solid #F1F1F1;
+    color: #333000;
+}
+
+.topSocialIcon .fa-linkedin {
+    border: 1px solid #F1F1F1;
+    color: #003b5f;
+}
+
+.topSocialIcon .fa-instagram {
+    border: 1px solid #F1F1F1;
+    color: #8d1b75;
+}
+
+.topSocialIcon .fa-youtube {
+    border: 1px solid #F1F1F1;
+    color: #c30404;
+}
+
+.topSocialIcon a:hover.fa,
+.topSocialIcon a:hover.fab,
+.topSocialIcon a:hover.fa-brands,
+.topSocialIcon a:hover {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+
+.fab, .fa-brands {
+    font-weight: 400;
+}
+
+/* =========================================================
+   5. NAVBAR (sticky behavior)
+   ========================================================= */
+#navbar_top {
+    background: var(--color-white);
+    box-shadow: 0 2px 2px rgba(31, 31, 31, 0.12);
+    min-height: 50px;
+    margin: 0;
+    z-index: 1000;
+    transition: all 0.25s ease;
+}
+
+/* When scrolled, .fixed-top is added by JS */
+#navbar_top.fixed-top {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    animation: slideDown 0.3s ease;
+}
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+/* Sticky logo (hidden until scroll) */
+.stickyLogo { display: none; }
+.stickyLogo img { max-height: 40px; }
+
+/* Main menu */
+.headerMenuWraperDiv { display: flex; align-items: center; justify-content: center; }
+.headerMenu > ul { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; }
+.headerMenu > ul > li { position: relative; }
+.headerMenu > ul > li > a {
+    display: block;
+    padding: 15px 14px;
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--color-black);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.headerMenu > ul > li > a:hover {
+    color: var(--brand-red);
+    text-decoration: none;
+}
+.headerMenu > ul > li > a > i { margin-left: 4px; font-size: 16px; }
+
+/* "More" dropdown */
+.moreMenuDiv { display: inline-block; padding: 0 16px; }
+.moreMenuDiv > span {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--color-black);
+    cursor: pointer;
+}
+.moreMenuDiv > span > i { margin-left: 4px; font-size: 12px; }
+.moreMenuDiv > span:hover { color: var(--brand-red); }
+
+/* Dropdown menu (Bootstrap 3 override) */
+/*.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: auto;
+    right: 0;
+    min-width: 220px;
+    background: var(--color-white);
+    border: 1px solid var(--color-3);
+    border-radius: var(--radius-5);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+    padding: 8px 0;
+    z-index: 1050;
+    display: none;
+}*/
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+.dropdown.open > .dropdown-menu { display: block; }
+.dropdown-menu > ul > li > a {
+    display: block;
+    padding: 8px 18px;
+    font-size: 15px;
+    color: var(--color-black);
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+.dropdown-menu > ul > li > a:hover {
+    background: var(--color-2);
+    color: var(--brand-red);
+    text-decoration: none;
+}
+
+/* More category dropdown (taller, scrollable) */
+
+.moreLoadMenubarCategories li a {
+    display: block;
+    padding: 8px 18px;
+    font-size: 15px;
+    color: var(--color-black);
+    text-decoration: none;
+}
+.moreLoadMenubarCategories li a:hover {
+    background: var(--color-2);
+    color: var(--brand-red);
+    text-decoration: none;
+}
+
+.moreClickLoadMenubarCategories {
+    font-size: 2.3rem;
+    cursor: pointer;
+    padding: 5px 4px;
+}
+/* Search icon in navbar */
+.desktopSearchIcon2 {
+    font-size: 18px;
+    color: var(--color-black);
+    transition: color 0.2s ease;
+}
+.desktopSearchIcon2:hover { color: var(--brand-red); }
+
+/* Sticky bar (hamburger shown when scrolled) */
+.desktopStickyBar { display: none; }
+.desktopStickyBarIcon { font-size: 18px; color: var(--color-black); margin-left: 12px; }
+
+
+/* =========================================================
+   6. MEGA MENU PANEL
+   ========================================================= */
+.megaMenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-white);
+    border-top: 1px solid var(--color-3);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    z-index: 1050;
+    padding: 0;
+}
+.megaMenuDiv { width: 100%; }
+
+.desktopLoadMenubarCategories {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 0 10px;
+}
+.desktopLoadMenubarCategories > .col-md-2 {
+    flex: 0 0 16.6666%;
+    max-width: 16.6666%;
+    padding: 5px 0;
+}
+.desktopLoadMenubarCategories a.title11 {
+    display: block;
+    padding: 3px 6px;
+    font-size: 16px;
+    color: var(--color-black);
+    transition: color 0.15s ease;
+}
+.desktopLoadMenubarCategories a.title11:hover {
+    color: var(--brand-red);
+    text-decoration: none;
+}
+
+.desktopDivider {
+    display: block;
+    height: 1px;
+    background: var(--color-3);
+    margin: 10px 0;
+}
+
+.desktopMegamenuSpecialLinks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px 0;
+}
+.desktopMegamenuSpecialLinks a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-black);
+    background: var(--color-2);
+    border-radius: var(--radius-5);
+    transition: all 0.2s ease;
+}
+.desktopMegamenuSpecialLinks a:hover {
+    background: var(--color-3);
+    text-decoration: none;
+}
+.desktopMegamenuSpecialLinks a.bgRed {
+    background: var(--brand-red);
+    color: var(--color-white);
+}
+.desktopMegamenuSpecialLinks a.bgRed:hover {
+    background: var(--brand-red-dark);
+}
+
+/* =========================================================
+   MORE DROPDOWN TEXT SIZE & ALIGNMENT UPGRADES
+   ========================================================= */
+
+/* Main custom dropdown container panel sizing */
+.dropdown-menu.customMoreDropdown {
+    max-height: 420px !important;
+    overflow-y: auto !important;
+    min-width: 150px !important; /* Slightly widened to fit large text lines elegantly */
+    background-color: #ffffff !important;
+    border: 1px solid #d8d8d8 !important;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1) !important;
+    padding: 5px 0 !important;
+    text-align: left !important; /* Left-align like image_f94407.png */
+}
+
+/* Scrollbar styling layout overrides */
+.dropdown-menu.customMoreDropdown .scrollbar1 {
+    max-height: 400px !important;
+    overflow-y: auto !important;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Increase the font scale of individual dropdown items */
+.moreLoadMenubarCategories li a {
+    display: block !important;
+    padding: 10px 22px !important; /* Generous padding line gutters */
+    font-size: 16px !important;    /* 🌟 Increased from 14px to match label scale */
+    font-weight: 500 !important;
+    color: #222222 !important;
+    text-align: left !important;
+}
+
+/* Hover highlights matching the portal system styles */
+.moreLoadMenubarCategories li a:hover {
+    background-color: #f5f5f5 !important;
+    color: var(--brand-red) !important;
+    text-decoration: none !important;
+}
+
+/* Ensure navbar triggering element has proper sizing layout rules */
+.headerMenu > ul > li > a {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+}
+
+
+/* =========================================================
+   7. SECTION TITLES & DIVIDERS
+   ========================================================= */
+/* =========================================================
+   FIXED SECTION TITLE UNDERLINE SYSTEM
+   ========================================================= */
+
+/* 1. Ensure the heading acts as a relative container wrapper */
+.desktopLocationDiv h2.desktopSectionTitle {
+    position: relative;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--color-3); /* The clean light-gray background rule line */
+    display: block;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.bottomMarked {
+    width: 45px;                   /* Precise reference width matching layout */
+    height: 3px;
+    background-color: var(--brand-red);
+    display: block;
+    
+    /* Absolute anchor placements */
+    position: absolute;
+    bottom: -1px;                  /* Locks perfectly over the gray baseline */
+    left: 0;
+}
+   .desktopSectionTitle {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 15px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid var(--color-3);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.desktopSectionTitle > a {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-black);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.desktopSectionTitle > a:hover {
+    color: var(--brand-red);
+    text-decoration: none;
+}
+.leftMarked {
+    display: inline-block;
+    width: 10px;
+    height: 20px;
+    background: var(--brand-red);
+    margin-right: 10px;
+    vertical-align: middle;
+    
+}
+.bottomMarked {
+    width: 30px;
+    height: 3px;
+    margin-bottom: -1px;
+    background-color:var(--brand-red);
+    display: block;
+}
+
+.bottomMarked {
+    display: inline-block;
+    width: 30px;
+    height: 3px;
+    background: var(--brand-red);
+    margin-top: 6px;
+    border-radius: 2px;
+}
+
+
+/* =========================================================
+   8. NEWS CARDS (thumbnail, media, link overlay)
+   ========================================================= */
+
+/* Link overlay — covers the whole card so the entire area is clickable */
+.linkOverlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+
+.desktopSummary {
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: var(--color-1);
+}
+
+/* Time stamp */
+.desktopTime {
+    font-size: 13px;
+    color: var(--color-1);
+    font-weight: 500;
+}
+.desktopTime i { margin-right: 4px; }
+
+/* Hover image wrapper (small media items with bg) */
+.hoverImage { transition: background 0.2s ease; }
+.hoverImage:hover { background: var(--color-3) !important; }
+.hoverImageWrap img { transition: transform 0.3s ease; }
+.hoverImage:hover .hoverImageWrap img { transform: scale(1.04); }
+.hoverImageText { font-size: 15px; font-weight: 600; line-height: 1.4; }
+
+/* =========================================================
+   9. FIXED FWC EVENT WIDGET (Exact Cloned Styles)
+   ========================================================= */
+.fwcEventWrap {
+    background-color: #E3F2FD !important; /* Soft light blue canvas wrapper per image */
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+/* Red Left Column Container Wrapper */
+.live-widget-wrap {
+    background-color: #a31318;
+    height: 95px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Upgrade the rigid height container to look pristine on all screen sizes */
+.live-widget-wrap {
+    height: auto !important;          /* 🌟 Allows the red container to expand when text wraps */
+    min-height: 95px !important;       /* Keeps the crisp desktop look unchanged */
+    overflow: visible !important;      /* Prevents text from being sliced out of view */
+    padding-bottom: 8px !important;    /* Adds slight breathing room at the bottom on mobile */
+}
+
+.live-header-bar {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #b7161c;
+    padding: 6px 0;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+}
+
+/* Numerical Display Items */
+.desktopCountDown .countDownMainDiv {
+    width: 100%;
+    padding: 2px 10px;
+    margin: 0 auto;
+}
+
+.countDownDynamicTime {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #f9850f; /* Match orange boxes from screen */
+    border-radius: 3px;
+    padding: 2px;
+    width: 30px;
+    text-align: center;
+}
+
+.countDownStaticName {
+    font-size: 12px;
+    color: #ffffff;
+    padding-top: 4px;
+    text-align: center;
+}
+
+/* Right Side Links Box Wrapper matching image colors */
+.fwcQuickLinks { 
+    background-color: #BBDEFB; /* Brighter accent sky backdrop fill */
+    padding: 15px;
+    height: 95px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fwcQuickLinksInner { 
+    display: flex; 
+    gap: 15px; 
+    justify-content: center; 
+}
+
+.fwcQuickLinksInner a {
+    display: inline-block;
+    padding: 5px 15px;
+    background-color: rgba(255, 252, 230, 0.46); /* Translucent cream button */
+    border-radius: 5px;
+    color: #8476d1 !important; /* Purple-indigo tone from visual */
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.fwcQuickLinksInner a:hover {
+    background-color: #ffffff;
+    text-decoration: none;
+}
+
+/* Scroll list and headers adjustments */
+.fwcScrollList { 
+    height: 245px;
+    overflow-y: auto;
+}
+
+.list-headline-item {
+    border-bottom: 1px solid #d8d8d8;
+}
+
+.list-headline-item a {
+    color: #333333;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.list-headline-item a:hover {
+    color: #ff0000;
+}
+
+.fwcMoreLink {
+    background-color: #d8e8f4;
+    text-align: center;
+    margin: 0;
+}
+
+.fwcMoreLink a {
+    color: #000000 !important;
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+}
+
+/* Media components structure rules overrides */
+.desktopSectionListMedia .media {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #d8d8d8 !important;
+}
+
+.shoulder-text {
+    font-size: 12px;
+}
+
+/* =========================================================
+   FWC WORLD CUP WIDGET RESPONSIVE REFINEMENTS
+   ========================================================= */
+
+   
+/* Flex layout mapping for the new block-based countdown structure */
+.responsive-countdown-container {
+    display: flex !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding: 2px 5px !important;
+}
+
+.countdown-col {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    flex: 1 !important;
+}
+
+/* Ensure typography blocks separate cleanly without overlap */
+.countdown-col .countDownDynamicTime {
+    display: inline-block !important;
+    width: 34px !important;
+    height: 26px !important;
+    line-height: 24px !important;
+    text-align: center !important;
+    background-color: #f9850f !important;
+    color: #ffffff !important;
+    font-weight: bold !important;
+    border-radius: 3px !important;
+    font-size: 14px !important;
+}
+
+.countdown-col .countDownStaticName {
+    color: #ffffff !important;
+    font-size: 12px !important;
+    margin-top: 4px !important;
+    display: block !important;
+    line-height: 1.2 !important;
+}
+
+/* Base alignment defaults for the top columns grid row */
+.fwc-flex-header {
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
+
+@media (max-width: 767px) {
+    /* Collapse the parent layouts to stack vertically instead of side-by-side */
+    .fwc-flex-header {
+        display: block !important;
+    }
+    
+    .fwc-flex-header .col-sm-4,
+    .fwc-flex-header .col-sm-8 {
+        width: 100% !important;
+        margin-bottom: 12px !important;
+    }
+
+    /* Fix the quick links layout container panel to grow dynamically */
+    .fwcQuickLinks {
+        height: auto !important;
+        padding: 12px 8px !important;
+    }
+
+    .fwcQuickLinksInner {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        width: 100% !important;
+    }
+
+    .fwcQuickLinksInner a {
+        margin: 0 !important;
+        flex: 1 1 calc(33.33% - 8px) !important; /* Forces buttons to split perfectly into thirds */
+        min-width: 85px !important;
+        padding: 6px 4px !important;
+        font-size: 13px !important;
+        text-align: center !important;
+    }
+
+    /* Force lower news blocks rows to collapse cleanly to single-column blocks */
+    .desktopFlexRow {
+        display: block !important;
+    }
+
+    .desktopFlexRow .col-sm-4 {
+        width: 100% !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .borderC1R1 {
+        border-right: none !important;
+    }
+}
+
+/* =========================================================
+   10. TRENDING TOPICS
+   ========================================================= */
+.trendingTopics {
+    background: var(--color-2);
+    border: 1px solid var(--color-3);
+    border-radius: var(--radius-5);
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.trendingTopics > p { margin: 0; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.desktopTrendingTopicItem {
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+}
+.desktopTrendingTopicItem.bgRed {
+    color: var(--color-white);
+    background: var(--brand-red);
+}
+.desktopTrendingTopicItem.hoverRed {
+    color: var(--color-black);
+    background: var(--color-white);
+    border: 1px solid var(--color-3);
+}
+.desktopTrendingTopicItem.hoverRed:hover {
+    color: var(--brand-red);
+    border-color: var(--brand-red);
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   11. LEAD NEWS + SECONDARY HEADLINES
+   ========================================================= */
+.desktopSectionLead .caption h1 { font-size: 32px; line-height: 1.25; }
+.desktopSectionLead .caption h1 strong { font-weight: 700; }
+
+/* =========================================================
+   12. NATIONAL / INTERNATIONAL / POLITICS / COUNTRY
+   ========================================================= */
+
+/* Country news location selector */
+.desktopLocationDiv {
+    
+    border-radius: var(--radius-5);
+    padding: 15px 20px 10px;
+}
+.desktopLocationDiv .form-control {
+    height: 48px;
+    padding: 6px 12px;
+    font-size: 20px;
+    border: 1px solid var(--color-3);
+    border-radius: var(--radius-5);
+    background: var(--color-white);
+}
+.clickSearchButton {
+    color: var(--color-white);
+    height: 45px !important;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    transition: background 0.2s ease;
+}
+.clickSearchButton:hover { background: var(--brand-red-dark); }
+
+/* Ad placeholder (kept for layout fidelity, but no tracker scripts) */
+.adDiv {
+    background: var(--color-2);
+    border: 1px solid var(--color-3);
+    text-align: center;
+}
+.adDiv img { display: block; margin: 0 auto; }
+
+
+/* =========================================================
+   13. SIDEBAR (gold-price flexslider, Latest/Popular tabs)
+   ========================================================= */
+.sidebarFlexSlider { margin-bottom: 20px; }
+.flexslider2MainDiv { min-height: 200px; }
+.shoulderYellow .thumbnail { /*border: 1px solid var(--color-3);*/ }
+.shoulderYellow .caption.bgRed { border-bottom-left-radius: var(--radius-5); border-bottom-right-radius: var(--radius-5); }
+
+/* Tabs widget */
+.tabNews { background: var(--color-white);  }
+.nav-tabs {
+    border-bottom: 1px solid var(--color-3);
+    display: flex;
+    margin: 0;
+}
+.nav-tabs > li {
+    flex: 1;
+    margin-bottom: 0;
+    list-style: none;
+}
+.nav-tabs > li > a {
+    display: block;
+    padding: 12px 0;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    border: none !important;
+    border-radius: 0 !important;
+    background: #d1d1d1;
+    transition: all 0.2s ease;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+    color: var(--color-white);
+    background: var(--brand-red);
+    border: none !important;
+}
+.nav-tabs.borderTRadius5 { border-top-left-radius: var(--radius-5); border-top-right-radius: var(--radius-5); overflow: hidden; }
+.borderNone { border: none !important; }
+
+.tab-content { background: var(--color-white); }
+.tab-content.borderT0 { border-top: 0; }
+.tab-pane { padding: 0; }
+
+.latestDivHeight { max-height: 480px; overflow-y: auto; }
+
+/* Latest/Popular list items */
+.ajaxLatestNewsDivDesktop .media,
+.ajaxPopularNewsDivDesktop .media {
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--color-3);
+}
+.ajaxLatestNewsDivDesktop .media:last-child,
+.ajaxPopularNewsDivDesktop .media:last-child { border-bottom: none; }
+.ajaxLatestNewsDivDesktop .media-object,
+.ajaxPopularNewsDivDesktop .media-object { width: 100px; }
+.ajaxLatestNewsDivDesktop h4, .ajaxPopularNewsDivDesktop h4 { font-size: 15px; font-weight: 500; line-height: 1.4; }
+
+/* Popular count badge */
+.popularCount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--brand-red);
+    color: var(--color-white);
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 50%;
+}
+
+/* "All news" red bar at bottom of tabs */
+.tab-content > .tab-pane > p.bgRed {
+    border-bottom-left-radius: var(--radius-5);
+    border-bottom-right-radius: var(--radius-5);
+}
+.tab-content > .tab-pane > p.bgRed a { color: var(--color-white); }
+
+
+/* =========================================================
+   14. POLL WIDGET
+   ========================================================= */
+.pollTextDiv { padding: 15px; }
+.pollOption { margin-bottom: 10px; }
+.pollOption label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    background: var(--color-2);
+    border: 1px solid var(--color-3);
+    border-radius: var(--radius-5);
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.pollOption label:hover { border-color: var(--brand-red); }
+.pollOption input[type="radio"] { margin-right: 8px; }
+.downloadPoll i { color: var(--color-black); }
+
+
+/* =========================================================
+   15. ECONOMICS / SPORTS / ISLAM / ENTERTAINMENT / JOBS
+   ========================================================= */
+
+/* Islam & Life feature card */
+.islamFeatureCard {
+    background: var(--color-white);
+    box-shadow: var(--shadow-card);
+}
+.islamScheduleLink {
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.2s ease;
+}
+.islamScheduleLink:hover { background: var(--brand-red-dark); text-decoration: none; }
+
+/* Load more button */
+.loadMoreButton {
+    display: inline-block;
+    padding: 8px 22px;
+    background: var(--color-2);
+    border: 1px solid var(--color-3);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-black);
+}
+.loadMoreButton:hover {
+    background: var(--brand-red);
+    color: var(--color-white);
+    border-color: var(--brand-red);
+    text-decoration: none;
+}
+
+/* Entertainment feature caption (overlaid on image) */
+.entFeatureCaption {
+    background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.7) 100%);
+    left: 0; right: 0; bottom: 0;
+    border-radius: 0 0 var(--radius-5) var(--radius-5);
+}
+
+
+/* =========================================================
+   16. VIDEOS GRID
+   ========================================================= */
+.videoCaption {
+    background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.75) 100%);
+    left: 0; right: 0; bottom: 0;
+    border-radius: 0 0 var(--radius-5) var(--radius-5);
+}
+.pvIconLarge, .pvIconMedium {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color-white);
+    background: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+.pvIconLarge { width: 60px; height: 60px; font-size: 24px; }
+.pvIconMedium { width: 40px; height: 40px; font-size: 16px; }
+
+.videoCaption h3.title11,
+.desktopSectionLead .videoCaption h3.colorWhite {
+    color: #ffffff !important; /* Forces the text to stay white over the overlay gradient */
+}
+
+
+/* =========================================================
+   17. PHOTOS CAROUSEL + GRID
+   ========================================================= */
+.customCarousel { position: relative; }
+.customProgressBar {
+    height: 4px;
+    background: var(--color-3);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+.customProgressBar .bar {
+    height: 100%;
+    background: transparent;
+}
+.customProgressBar .in {
+    height: 100%;
+    background: var(--brand-red);
+    animation: progressBar 6s linear infinite;
+}
+@keyframes progressBar {
+    from { width: 0; }
+    to { width: 100%; }
+}
+/* =========================================================
+   UNIVERSAL GALLERY RESPONSIVE RATIOS & ALIGNMENT FIX
+   ========================================================= */
+
+/* Overrides structural layout defaults for right-side grid feeds */
+.custom-gallery-card {
+	display: flex !important;
+	flex-direction: column !important;
+	border: none !important;
+	box-shadow: none !important;
+	background: transparent !important;
+	padding: 0 !important;
+	margin-bottom: 15px !important;
+}
+
+/* Fixes the carousel image constraint boundary aspect ratio */
+.customCarousel .carousel-inner img {
+	width: 100% !important;
+	height: auto !important;
+	aspect-ratio: 16 / 9 !important; /* Locks widescreen gallery alignment framework */
+	object-fit: cover !important;
+}
+
+/* Forces side thumbnails to stay consistent without any whitespace leaking */
+.gallery-thumb-frame {
+	width: 100% !important;
+	height: auto !important;
+	aspect-ratio: 16 / 9 !important; /* 👈 Locks exact proportional matching reference image_d0e965.jpg */
+	overflow: hidden !important;
+	border-radius: 5px !important;
+	position: relative !important;
+}
+
+.gallery-thumb-frame img {
+	width: 100% !important;
+	height: 100% !important;
+	object-fit: cover !important;
+}
+
+/* Cleans up headline typography styling parameters */
+.custom-gallery-card .caption h3.title11 {
+	margin-top: 6px !important;
+	font-size: 14px !important; /* Elegant compact sizing to prevent overflowing lines */
+	line-height: 1.4 !important;
+	font-weight: 600 !important;
+	color: #333333 !important;
+}
+
+.carousel-inner > .item { display: none; }
+.carousel-inner > .item.active { display: block; }
+.carousel-counter {
+    position: absolute;
+    top: 10px; right: 12px;
+    background: rgba(0,0,0,0.6);
+    color: var(--color-white);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.customCarouselPauseButton,
+.customCarouselPlayButton {
+    position: absolute;
+    top: 10px; left: 12px;
+    background: rgba(0,0,0,0.6);
+    color: var(--color-white);
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px; height: 40px;
+    background: rgba(0,0,0,0.5);
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 4;
+}
+.customCarousel:hover .carousel-control { opacity: 1; }
+.carousel-control.left { left: 10px; }
+.carousel-control.right { right: 10px; }
+.carousel-control:hover { background: var(--brand-red); text-decoration: none; }
+
+/* Photo grid item */
+.ppIconMedium {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color-white);
+    background: rgba(0,0,0,0.5);
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    z-index: 2;
+}
+
+
+/* =========================================================
+   18. FOUR-COLUMN CATEGORY GRID
+   ========================================================= */
+/* =========================================================
+   FIXED SECTION LEAD: INSTANT FADE ON HOVER
+   ========================================================= */
+/* =========================================================
+   CLEAN UNBORDERED FLEX CARDS ALIGNMENT
+   ========================================================= */
+
+/* Overrides Bootstrap's standard thumbnail block style to match reference */
+.desktopSectionLead .thumbnail {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;            /* Removes the light grey borders completely */
+    box-shadow: none !important;        /* Removes default bounding block shadows */
+    padding: 0 !important;              /* Strips extra default inside gutters */
+    margin-bottom: 10px;
+    
+    /* Flex box execution ensures matching card column balance */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Forces image frames to be uniformly proportioned automatically */
+.desktopSectionLead .thumbnail .positionRelative {
+    width: 100%;
+    
+    /* 🌟 REMOVED hardcoded pixel height constraint */
+    height: auto !important; 
+    
+    /* 🌟 ADDED native auto aspect-ratio calculation */
+    aspect-ratio: 3 / 2 !important; /* Use 3/2 or 4/3 depending on your design preference */
+    
+    overflow: hidden;
+}
+
+/* Ensure the image scales seamlessly inside the automatic box ratio */
+.desktopSectionLead .thumbnail img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover; /* Keeps it proportional without warping layout boundaries */
+}
+
+/* Ensures captions sit flush with image edges and flow downwards */
+.desktopSectionLead .thumbnail .caption {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 10px !important;
+    text-align: left;
+    flex-grow: 1;              /* Allows shorter headings to automatically space out balance */
+}
+
+/* Align text properties instantly */
+.desktopSectionLead .caption h3.title11 {
+    margin-top: 0 !important;
+    font-size: 16px !important;
+    line-height: 1.45 !important;
+    font-weight: 600;
+    /*color: #ffffff;*/
+}
+
+/* =========================================================
+   ECONOMICS SECTION ALIGNMENT & GEOMETRY
+   ========================================================= */
+
+/* Left Large Column Image Constraints (3:2 Aspect Ratio Auto) */
+.econ-large-frame {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 3 / 2 !important;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+/* Center Stacked Column Container Image Constraints */
+.econ-center-top-frame {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important; /* Matches reference aspect ratio spacing layout */
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.econ-center-bottom-frame {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 21 / 9 !important; /* Low profile wide ribbon crop ratio to accommodate title and shoulder lines safely */
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+/* Right Column Micro Thumbnail Image Containers */
+.econ-right-thumb-frame {
+    width: 120px !important;
+    min-width: 120px !important;
+    height: 70px !important;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+/* Bind proportional render mappings across all active frames */
+.econ-large-frame img,
+.econ-center-top-frame img,
+.econ-center-bottom-frame img,
+.econ-right-thumb-frame img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+/* Enforce crisp headline typography defaults */
+.desktopSectionLead .caption h3.title9 {
+    font-size: 23px !important;
+    line-height: 1.45 !important;
+    font-weight: 800 !important;
+}
+.desktopSectionLead .caption h3.title11 {
+    font-size: 18px !important;
+    line-height: 1.45 !important;
+    font-weight: 800 !important;
+}
+/* =========================================================
+   ECONOMICS SPECIFIC RESPONSIVE OVERRIDES
+   ========================================================= */
+
+
+/* =========================================================
+   19. FOOTER
+   ========================================================= */
+.desktopFooter {
+    background: var(--color-2);
+    border-top: 2px solid var(--color-3);
+    padding: 30px 0 20px;
+    margin-top: 40px
+}
+.footerBottom p {
+    font-size: 18px;
+    color: var(--color-black);
+    margin-bottom: 6px;
+    padding-top: 20px;
+}
+.followDiv { display: flex; flex-direction: column; align-items: flex-end; }
+.followDiv .topSocialIcon { margin-top: 10px; }
+.linkDivFooter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px 0;
+    margin-top: 15px;
+}
+.linkDivFooter a {
+    font-size: 18px;
+    color: var(--color-black);
+    text-decoration: none;
+    
+    /* Box Properties */
+    padding: 4px 10px;
+    border: 1px solid #e8e8e8;
+    
+    
+    /* Subtle Box Shadow Effect */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03); 
+    
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+.linkDivFooter a:hover { color: var(--brand-red); text-decoration: none; }
+
+
+/* =========================================================
+   20. GO-TO-TOP BUTTON
+   ========================================================= */
+.go-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 44px;
+    height: 44px;
+    background: var(--brand-red);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+.go-to-top:hover { background: var(--brand-red-dark); transform: translateY(-3px); }
+
+
+/* =========================================================
+   21. FLEXSLIDER OVERRIDES
+   ========================================================= */
+.flexslider2 {
+    margin: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+/* Fix Arrow Positioning for Responsiveness */
+.flexslider2 .flex-direction-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 10;
+}
+
+.flexslider2 .flex-direction-nav a {
+    position: absolute;
+    top: -15px; /* Adjusts vertical alignment to center of the image */
+    width: 30px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.8) !important; /* Makes arrows visible against dark images */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-indent: 0; /* Ensures the arrow icon is visible */
+}
+
+.flexslider2 .flex-prev { left: 10px !important; }
+.flexslider2 .flex-next { right: 10px !important; }
+/* Ensure FlexSlider images are fluid */
+.flexslider2 .slides li img {
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+    aspect-ratio: 3 / 2; /* Keeps the slider consistent on all devices */
+    object-fit: cover;
+}
+
+
+/* Sidebar widget container fix */
+.flexslider2MainDiv {
+    width: 100% !important;
+    height: auto !important;
+}
+
+
+.borderC1B1 img {
+    height: 45px; /* Adjust this value until it looks perfect */
+    width: auto;  /* Maintains the original aspect ratio */
+}
+
+/* Remove the gap below the image and fix thumbnail padding */
+.flexslider2 .thumbnail {
+    padding: 0 !important;      /* Removes the default Bootstrap border/padding */
+    margin-bottom: 0 !important; /* Removes the bottom margin from the thumbnail */
+    border: none !important;     /* Removes any residual border */
+}
+
+.flexslider2 .thumbnail img {
+    display: block !important;  /* Removes the small space reserved for text descenders */
+    margin: 0 !important;
+}
+
+/* Ensure the caption fits tightly against the image */
+.flexslider2 .caption {
+    margin-top: 0 !important;
+    padding-top: 10px !important;
+}
+/* =========================================================
+   22. RESPONSIVE BREAKPOINTS
+   ========================================================= */
+
+/* Tablets and below */
+@media (max-width: 991px) {
+    .desktopHeaderLogoLeftDiv { justify-content: center; }
+    .desktopHeaderLogoRightDiv { justify-content: center; }
+    .topSocialIcon.text-right { text-align: center; }
+
+    .headerMenu > ul { flex-wrap: wrap; }
+    .headerMenu > ul > li > a { padding: 10px 8px; font-size: 14px; }
+
+    .moreMenuDiv { display: none; }
+
+    .desktopSectionTitle { font-size: 18px; }
+    .title8 { font-size: 22px; }
+    .title9 { font-size: 18px; }
+    .title10 { font-size: 16px; }
+    .title11 { font-size: 15px; }
+
+    
+    .countDownDynamicTime { font-size: 24px; min-width: 50px; padding: 6px 10px; }
+}
+
+
+/* Small mobile */
+@media (max-width: 480px) {
+    .desktopTrendingTopicItem { font-size: 12px; padding: 3px 8px; }
+    .title8 { font-size: 18px; }
+    .title9 { font-size: 16px; }
+    .countDownDynamicTime { font-size: 18px; min-width: 38px; padding: 4px 6px; }
+    .countDownStaticName { font-size: 10px; }
+    .go-to-top { bottom: 15px; right: 15px; }
+}
+/* =========================================================
+   NATIONAL GRID FIXED CONFIGURATION
+   ========================================================= */
+
+/* Parent alignment container row */
+.display-flex-row {
+    display: flex !important;
+    flex-wrap: wrap;
+}
+
+/* Base structural setups for the main featured story */
+.custom-lead-card {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    background: transparent !important;
+}
+
+/* Image container frame for the large featured story */
+.large-featured-frame {
+    width: 100%;
+    height: 310px !important; /* Locks exact height grid matching the reference image */
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+/* Image container frame for the stacked side column block stories */
+.side-block-frame {
+    width: 100%;
+    height: 145px !important; /* Exact height to ensure both blocks sum cleanly to match the left card height */
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+/* Bulletproof aspect-ratio execution for all national layout images */
+.large-featured-frame img,
+.side-block-frame img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Crops images clean into 16:9 ratio without squishing fields */
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Smooth immediate hover opacity */
+.desktopSectionLead:hover img {
+    opacity: 0.75 !important;
+}
+
+/* Bounding box reset for stacked items */
+.block-stacked-card .thumbnail {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+/* =========================================================
+   ECONOMICS SECTION CLEAN ALIGNMENT & GEOMETRY FIX
+   ========================================================= */
+
+/* Strip default Bootstrap container fills and borders */
+.container .thumbnail.borderRadius0 {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+}
+
+/* Ensure the layout dividers match reference site grey tone */
+.desktopDivider {
+    display: block !important;
+    height: 1px !important;
+    background-color: #d8d8d8 !important; /* Crisp thin separation line */
+    margin: 10px 0 !important;
+    border: none !important;
+}
+
+/* Force headings inside the media list feed slots to display elegantly */
+.desktopSectionLead .media-body h4.title11 {
+    font-size: 16px !important;
+    line-height: 1.45 !important;
+    font-weight: 600 !important;
+    color: #333333 !important;
+    margin: 0 !important;
+}
+
+/* =========================================================
+   ISLAM AND LIFE MODULE ALIGNMENT OVERRIDES
+   ========================================================= */
+
+/* Alignment and horizontal spacing reset inside the Header Button */
+.desktopSectionTitle .bgRed .fa-clock {
+    margin-right: 8px !important;   /* Provides perfect clear gutter space next to text */
+    vertical-align: middle !important;
+}
+
+/* Feature Image Container Constraint Box */
+.custom-islam-feature {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+}
+
+.islam-img-frame {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 3 / 2 !important; /* Locks uniform image dimension matrix */
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.islam-img-frame img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+/* Floating Overlaid Text Box Fix: Prevents text truncation bugs */
+.custom-floating-box {
+    width: 90% !important;
+    margin-left: 5% !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important; /* Soft backdrop separation drop shadow */
+    z-index: 2;
+    position: relative;
+}
+
+/* Ensure the layout summary text flows fully without unexpected word cuts */
+.custom-floating-box .desktopSummary {
+    display: block !important;
+    white-space: normal !important; /* Overrides accidental ellipsis constraints */
+    overflow: visible !important;
+    text-overflow: clip !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    color: #5c5b5b !important;
+}
+
+/* =========================================================
+   ISLAM FEATURE LAYER FLOATING FIX
+   ========================================================= */
+
+/* Override global flex row constraints for the layered card layout */
+.custom-islam-feature {
+    display: block !important;          /* Disables column stacking */
+    position: relative !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+/* Keeps the base background photo perfectly proportioned */
+.islam-img-frame {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 3 / 2 !important;
+    overflow: hidden !important;
+    border-radius: 5px !important;
+}
+
+.islam-img-frame img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+/* Pulls the white content box back up seamlessly on top of the image */
+.custom-floating-box {
+    display: block !important;
+    position: relative !important;
+    width: 90% !important;
+    margin-left: 5% !important;
+    margin-top: -60px !important;       /* Pulls the card upward over the image frame */
+    background-color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+    z-index: 5 !important;              /* Locks layer depth priority */
+    border-radius: 5px !important;
+}
+
+/* Keeps text fields safe from layout compression bugs */
+.custom-floating-box .desktopSummary {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    display: block !important;
+}
+
+/* =========================================================
+   RESPONSIVE OPTIMIZATION FOR ISLAM SECTION
+   ========================================================= */
+
+
+@media (min-width: 768px) {
+    .islam-btn-responsive {
+        float: right !important;
+    }
+}
+
+/* =========================================================
+   VIDEO MEDIA CARD RESPONSIVE FIXES
+   ========================================================= */
+
+/* 1. Reset the card structure so items don't merge */
+.custom-media-card, .flex-media-box {
+    display: block !important;
+    background-color: #f2f2f2 !important;
+    padding: 12px !important;
+    border-radius: 6px !important;
+    margin-bottom: 20px !important;
+    overflow: hidden !important;
+    border: none !important;
+}
+
+/* 2. Float the image to the left and wrap text around it */
+.gallery-thumb-fixed, 
+.gallery-thumb-frame-mini {
+    float: left !important;
+    margin-right: 12px !important;       /* Space between image and text */
+    margin-bottom: 5px !important;
+    width: 100px !important;             /* Maintain your image size */
+    height: 70px !important;
+}
+
+.gallery-thumb-fixed img, 
+.gallery-thumb-frame-mini img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;        /* Ensures image fills the box without distortion */
+    border-radius: 4px !important;
+}
+
+/* 3. Ensure the text flows properly around the floated image */
+.custom-media-card .media-body,
+.flex-media-box .media-body {
+    display: block !important;
+    overflow: hidden;                    /* Creates a new block formatting context to prevent text wrap under image */
+}
+
+/* 4. Heading size and line spacing integrity */
+.custom-media-card .title11,
+.flex-media-box .title11 {
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+    color: #333 !important;
+    font-weight: 600 !important;
+}
+
+.row {
+    clear: both !important;
+}
+
+/* Container for each news card */
+.custom-media-card {
+    display: block !important;          /* Removed flex to allow float: left */
+    overflow: hidden !important;        /* Important: Clears the float so the card wraps the image */
+    background-color: #f2f2f2 !important;
+    padding: 10px !important;
+    border-radius: 5px !important;
+    min-height: 100px !important;       /* Keeps uniform height */
+    position: relative;
+}
+
+/* Image styling */
+.news-thumbnail-img {
+    float: left !important;             /* The requested wrap behavior */
+    width: 100px !important;
+    height: 80px !important;
+    margin-right: 10px !important;
+    margin-bottom: 5px !important;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Ensure the body wraps correctly */
+.custom-media-card .media-body {
+    display: block !important;
+    overflow: hidden;
+}
+
+/* Prevent vertical merging */
+.marginB20 {
+    margin-bottom: 20px !important;
+}
+
+/* =========================================================
+   NEWS FEED COMPONENT STYLING
+   ========================================================= */
+
+/* The wrapper span for the thumbnail */
+.img-wrapper-span {
+    width: 110px !important;
+    overflow: hidden !important;
+    display: block !important;
+}
+
+/* The news thumbnail image */
+.news-thumbnail-img {
+    display: block !important;
+    float: left !important;
+    object-fit: cover !important;
+    height: 80px !important;
+}
+
+/* Text alignment for the headline */
+.news-title-text {
+    margin-top: -18px !important;
+}
+
+/* Ensure consistent card heights and layout */
+.flex-media-box {
+    display: flex !important;
+    flex-direction: column !important;
+}
+/* =========================================================
+   MOBILE HEADER RESPONSIVENESS
+   ========================================================= */
+/* =========================================================
+   MOBILE RESPONSIVE ADAPTATION (Devices < 767px)
+   ========================================================= */
+    /* =========================================================
+   UNIFIED MOBILE RESPONSIVE ADAPTATION (Devices < 767px)
+   ========================================================= */
+@media (max-width: 767px) {
+    /* 1. Header & Navbar Visibility */
+    .desktopHeader { display: block !important; }
+    #navbar_top { display: block !important; height: auto !important; }
+
+    /* 2. Header Layout Stacking */
+    .desktopHeader .container { padding: 0 10px !important; }
+    .desktopHeader .row { display: flex; flex-direction: column; align-items: center; }
+    .desktopHeader .col-md-4 { width: 100% !important; text-align: center !important; margin-bottom: 5px; }
+    
+    /* 3. Hide non-essential desktop clutter on mobile */
+    .desktopHeaderLogoRightDiv, .topSocialIcon, .headerMenuWraperDiv, .stickyHeaderLogoDiv {
+        display: none !important;
+    }
+    
+    .desktopHeader img { height: 35px !important; }
+    .desktopHeaderLogoLeftDiv { padding-top: 0 !important; }
+
+    /* 4. Footer Stacking */
+    .desktopFooter .desktopFlexRow { display: block !important; text-align: center; }
+    .footerBottom, .followDiv { text-align: center !important; align-items: center !important; }
+    .linkDivFooter { justify-content: center !important; }
+
+    /* 5. Clean up other mobile UI inconsistencies */
+    .desktopSectionTitle { flex-direction: column !important; align-items: flex-start !important; gap: 10px !important; }
+    .custom-floating-box { width: 100% !important; margin-left: 0 !important; margin-top: 10px !important; box-shadow: none !important; }
+    .responsive-news-grid { display: block !important; }
+    .responsive-news-grid .col-sm-4 { width: 100% !important; margin-bottom: 20px !important; }
+    .borderC1R1 { border-right: none !important; }
+}
+/* Ensure mobile menu trigger is visible on phones */
+@media (max-width: 767px) {
+    .mobile-menu-trigger {
+        display: block !important;
+    }
+
+    /* Force the navigation menu to stack on mobile */
+    .headerMenuWraperDiv {
+        display: none; /* Hidden by default, toggled via JS */
+        width: 100%;
+        background: #fff;
+        border-top: 1px solid #ddd;
+    }
+
+    .headerMenu > ul {
+        display: block !important;
+        text-align: left;
+    }
+
+    .headerMenu > ul > li {
+        border-bottom: 1px solid #eee;
+    }
+}
+/* Sidebar Drawer Style */
+.mobile-sidebar {
+    position: fixed;
+    top: 0;
+    left: -200px; /* Hidden by default */
+    width: 200px;
+    height: 100%;
+    background: #fff;
+    z-index: 9999;
+    transition: 0.3s;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+}
+.mobile-sidebar.active { left: 0; }
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 9998;
+}
+.sidebar-overlay.active { display: block; }
+.mobile-nav-links li { border-bottom: 1px solid #eee; padding: 10px 0; }
+.close-sidebar { float: right; font-size: 30px; cursor: pointer; }
+
+/* Sidebar social icons size and color */
+.mobile-sidebar-social a {
+    font-size: 22px !important;
+    color: #333 !important;
+    transition: color 0.2s;
+}
+
+.mobile-sidebar-social a:hover {
+    color: var(--brand-red) !important;
+}
+
+/* Ensure mobile nav links have enough spacing */
+.mobile-nav-links {
+    padding: 15px !important;
+}
+
+.mobile-nav-links li {
+    padding: 12px 0 !important;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Show the trigger icon ONLY on mobile */
+@media (min-width: 768px) { .mobile-menu-trigger { display: none !important; } }
+@media (max-width: 767px) { .mobile-menu-trigger { display: block !important; } }
+
+/* 📱 Mobile Responsive Fixes */
+@media (max-width: 767px) {
+    .flexslider2 .flex-direction-nav a {
+        width: 25px;
+        height: 25px;
+    }
+    /* Shrink the red header text specifically for mobile */
+    .shoulderYellow .caption.bgRed h3.title11 {
+        font-size: 16px !important; /* Reduced from 2.2rem */
+        line-height: 1.2 !important;
+        padding: 8px 5px !important;
+    }
+
+    /* 1. Restore spacing around the slider container */
+    .flexslider2MainDiv {
+        margin-bottom: 30px !important; /* Adds space below the slider */
+    }
+
+    /* 2. Add padding back to the national grid section */
+    .col-sm-12.col-md-12.paddingLR10 {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    
+    /* 3. Give the slider some breathing room if it's hitting the edges */
+    .sidebarFlexSlider {
+        padding: 0 10px !important;
+    }
+}
+
+/* Category Title Styles */
+.desktopCategoryTitle {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--color-3);
+    padding-bottom: 10px;
+}
+
+.desktopSubCategoryDiv ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.desktopSubCategoryDiv li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.desktopSubCategoryDiv li i {
+    font-size: 6px;
+    color: var(--brand-red);
+}
+
+/* Ensure mobile responsiveness for the category grid */
+@media (max-width: 767px) {
+    .desktopCategoryTitle { font-size: 24px; }
+    .desktopSubCategoryDiv ul { gap: 10px; }
+    .desktopSubCategoryDiv li { font-size: 14px; }
+}
+
+/* =========================================================
+   23. CATEGORY PAGE — national.html specific components
+   ========================================================= */
+
+/* Category title (h1 at top of category page) */
+.desktopCategoryTitle {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    padding-bottom: 6px;
+    border-bottom: 3px solid var(--brand-red);
+    display: inline-block;
+    line-height: 1.3;
+}
+.desktopCategoryTitle a {
+    color: var(--brand-red);
+    text-decoration: none;
+}
+.desktopCategoryTitle a:hover { color: #900; }
+
+/* Subcategory pills row */
+.desktopSubCategoryDiv { margin-top: 8px; margin-bottom: 4px; }
+.desktopSubCategoryDiv ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 0;
+    align-items: center;
+}
+.desktopSubCategoryDiv li {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 10px;
+}
+.desktopSubCategoryDiv li i.fa-circle {
+    font-size: 5px;
+    color: var(--brand-red);
+    margin-right: 5px;
+    vertical-align: middle;
+}
+.desktopSubCategoryDiv li h2 {
+    display: inline;
+    font-size: 13px;
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.4;
+}
+.desktopSubCategoryDiv li h2 a {
+    color: #444;
+    text-decoration: none;
+}
+.desktopSubCategoryDiv li h2 a:hover { color: var(--brand-red); }
+
+/* Active navbar item indicator */
+.headerMenu ul li.active > a {
+    color: var(--brand-red);
+    border-bottom: 2px solid var(--brand-red);
+}
+
+.desktopSectionListMedia2 .media {
+    display: flex !important;
+    align-items: center !important;
+    padding: 12px 0 !important;
+    border-bottom: 1px solid #d8d8d8 !important;
+    position: relative !important;
+    overflow: hidden !important;
+    background-color: transparent !important; /* 👈 Strips any leaking grey fills */
+    background: none !important;
+}
+
+/* Force elements inside left or right column slots to obey uniform layouts */
+.desktopSectionListMedia2 .media-left .positionRelative,
+.desktopSectionListMedia2 .media-right .positionRelative {
+    width: 100% !important;
+    height: 100% !important;
+    background: transparent !important;
+}
+
+/* Forces ALL layout images inside these listings to crop and fill identically */
+.desktopSectionListMedia2 .media-object {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* 👈 Crops image proportionally into frame without warping */
+    border-radius: 4px !important; /* Matches reference site soft layout radius corners */
+    transition: opacity 0.2s ease-in-out !important;
+    opacity: 1;
+}
+
+/* The Body/Text Block auto alignment slots */
+.desktopSectionListMedia2 .media-body {
+    padding-left: 0 !important;
+    padding-right: 12px !important; /* Gives breathing room space before the graphic frame */
+    text-align: left !important;
+    flex: 1 !important;
+}
+
+/* Forces the text titles to sit flush starting at the exact same coordinates */
+.desktopSectionListMedia2 .media-body h4.title11 {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 16px !important;
+    line-height: 1.45 !important;
+    font-weight: 600 !important;
+    color: #333333 !important;
+}
+
+/* ===== GLOBAL LIST HOVER HIGHLIGHT EFFECTS ===== */
+.desktopSectionListMedia2 .media:hover .media-object {
+    opacity: 0.75 !important; /* Instant premium snap-fade on thumbnail hover */
+}
+
+.desktopSectionListMedia2 .media:hover .media-body h4.title11 {
+    color: var(--brand-red) !important; /* Highlights title typography cleanly */
+}
+
+/* Structural Padding resets for edge content rows */
+.desktopSectionListMedia2.listItemFirstPT0 .media:first-child,
+.listItemFirstPT0 .media:first-child {
+    padding-top: 0 !important;
+}
+
+.desktopSectionListMedia2.listItemLastBB0 .media:last-child,
+.listItemLastBB0 .media:last-child {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+}
+
+/* Article list: text left, thumbnail right (media-right pattern) */
+.desktopSectionListMedia2 .media {
+    border-bottom: 1px solid #eee;
+    padding: 12px 0;
+}
+
+/*For fixing the aspect ratio of section lists*/
+.desktopSectionListMedia2 .media-left, .desktopSectionListMedia2 .media-right {
+    width: 280px !important;
+    min-width: 280px !important;
+    max-width: 280px !important;
+    height: 160px !important;
+    overflow: hidden !important;
+    background-color: transparent !important;
+    background: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Mobile thumbnail width override */
+.xs-width130 { width: 130px !important; }
+@media (max-width: 767px) {
+    .xs-width130 { width: 100px !important; }
+    .desktopSectionListMedia .media .media-right img.media-object { width: 100px; }
+    .desktopCategoryTitle { font-size: 18px; }
+    .desktopSubCategoryDiv li h2 { font-size: 12px; }
+}
+
+/* Load more button */
+.btnLoadMore {
+    display: inline-block;
+    padding: 6px 28px;
+    background: var(--brand-white);
+    color: var(--brand-black);
+    font-size: 20px;
+    font-family: var(--font-bn);
+    border: 2px solid #d0d5dd;
+    box-shadow: 0 2px 2px rgba(16, 24, 40, .05);
+    border-radius: var(--radius-5);
+    text-decoration: none;
+}
+.btnLoadMore:hover { background: var(--brand-red);color: var(--color-2);; text-decoration: none; }
+
+
+/* 1. Fix for FWC Widget Scroll List (and similar list-based layouts) */
+.fwcScrollList .thumbnail:hover h3.title11,
+.fwcScrollList .thumbnail:hover h4.title11 {
+    color: var(--brand-red) !important;
+}
+
+/* 2. Global Fix for Link Overlays inside News Cards */
+/* This ensures that if the linkOverlay is hovered, the headline inside that card turns red */
+.positionRelative:hover .caption h3,
+.positionRelative:hover .media-body h4 {
+    color: var(--brand-red) !important;
+}
+
+/* 3. Specifically targeting your FWC list items */
+.fwcScrollList .positionRelative:hover .caption h3 {
+    color: var(--brand-red) !important;
+}
+
+/* 4. Fix for the "National" section or any section using the standard .desktopSectionLead class */
+.desktopSectionLead:hover h3.title9,
+.desktopSectionLead:hover h3.title11,
+.desktopSectionLead:hover h4.title11 {
+    color: var(--brand-red) !important;
+}
+
+/* 5. Fix for Latest/Popular Tabs */
+.tab-content .media:hover h4.title12 {
+    color: var(--brand-red) !important;
+}
+
+
+/* =========================================================
+   24. ARTICLE DETAIL PAGE — news_detail.html specific
+   ========================================================= */
+
+/* ---- Breadcrumb ---- */
+.articleBreadcrumb { font-size: 13px; }
+
+/* ---- Article title ---- */
+.articleTitle {
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 1.4;
+    color: #111;
+    margin: 0 0 12px 0;
+    font-family: var(--font-bn);
+}
+
+/* ---- Meta row ---- */
+.articleMeta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+.articleMetaLeft {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.articleAuthorAvatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #eee;
+}
+.articleAuthorInfo { display: flex; flex-direction: column; }
+.articleAuthorName {
+    font-size: 16px;
+    font-weight: 700;
+    color: #222;
+    line-height: 1.3;
+}
+.articleDateTime {
+    font-size: 16px;
+    color: #777;
+    line-height: 1.4;
+}
+.articleMetaRight {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.articleViewCount {
+    font-size: 13px;
+    color: #555;
+    margin-right: 4px;
+}
+.articleShareIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #f0f0f0;
+    color: #444;
+    font-size: 13px;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+}
+.articleShareIcon:hover { background: var(--brand-red); color: #fff; text-decoration: none; }
+.articleShareFb { background: #1877f2; color: #fff; }
+.articleShareFb:hover { background: #0d5fb3; color: #fff; }
+.articleShareTw { background: #000; color: #fff; }
+.articleShareTw:hover { background: #333; color: #fff; }
+.articleShareLink:hover { background: var(--brand-red); color: #fff; }
+.articleSharePrint:hover { background: #555; color: #fff; }
+
+/* ---- Featured image ---- */
+.articleFeaturedImage { margin-bottom: 5px; }
+.articleFeaturedImg {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-5);
+    display: block;
+}
+.articleImageCaption {
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+    margin: 4px 0 0 0;
+    font-style: italic;
+}
+
+/* ---- Social share action bar (below image) ---- */
+.articleShareBar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+.articleShareBtn {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: var(--font-bn);
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+.articleShareBtn:hover { opacity: 0.85; text-decoration: none; }
+.articleShareBtnFb  { background: #1877f2; color: #fff; }
+.articleShareBtnFb:hover { color: #fff; }
+.articleShareBtnChat { background: #25d366; color: #fff; }
+.articleShareBtnChat:hover { color: #fff; }
+.articleShareBtnMessenger { background: #0084ff; color: #fff; }
+.articleShareBtnMessenger:hover { color: #fff; }
+
+/* ---- Article body ---- */
+.articleBody {
+    font-size: 2.2rem !important;
+    line-height: 3.4rem !important;
+    line-height: 1.8;
+    color: #222;
+    font-family: var(--font-bn);
+    
+}
+.articleBody p {
+    margin-bottom: 18px;
+}
+
+/* ---- Tags ---- */
+.articleTags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+.articleTagLabel { color: #888; font-size: 13px; }
+.articleTag {
+    font-size: 2rem !important;
+    line-height: 2.8rem;
+    padding: 10px 15px 7px 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+    border-radius: 5px;
+    text-decoration: none !important;
+    margin-right: 5px;
+    border: 1px solid #edebeb;
+    color: #333;;
+}
+.articleTag:hover { background: var(--brand-red); color: #fff; border-color: var(--brand-red); text-decoration: none; }
+
+/* ---- Timeline section ---- */
+.articleTimeline {
+    border: 1px solid #e8e8e8;
+    border-radius: var(--radius-5);
+    overflow: hidden;
+}
+.articleTimelineHeader {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #fafafa;
+    padding: 10px 14px;
+    border-bottom: 2px solid var(--brand-red);
+}
+
+/* ---- Related news section ---- */
+.articleRelated { }
+.articleRelatedHeader {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 15px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid var(--color-3);
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+}
+.relatedCategoryMark {
+    display: inline-block;
+    width: 4px;
+    height: 20px;
+    background: var(--brand-red);
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+.relatedTitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111;
+}
+.relatedCard {
+    border-radius: var(--radius-5);
+    overflow: hidden;
+    border: 1px solid #eee;
+    height: 100%;
+}
+.relatedCardImg {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+}
+.relatedCard .caption { padding: 8px 10px; }
+.relatedCard .caption h4 {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #222;
+    margin: 0;
+}
+.relatedCard:hover .caption h4 { color: var(--brand-red); }
+
+/* ---- Article main column ---- */
+.articleMainCol { padding-right: 20px; }
+
+/* Sidebar and UI Shadow Polish */
+.shadow1 {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background: #fff;
+}
+
+
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+img {
+    vertical-align: middle;
+}
+img {
+    border: 0;
+}
+.marginT-2 {
+    margin-top: -2px !important;
+}
+/* 1. Main Container: Dark Grey background matches reference */
+.sb {
+    width: 100%;
+    font-size: 13px !important;
+    background: #686868; /* Updated to match the dark grey background */
+    border: 1px solid #686868;
+    border-radius: 4px;
+    overflow: hidden;
+    color: #FFFFFF;
+}
+
+/* 2. Mojo Ad Section: Ensures the image occupies the full width */
+.sb .mojo {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    display: block;
+}
+
+.sb .mojo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 3. Live Header: Labels "Live" and "End 16" */
+.sb .mc-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px 0 10px;
+    font-weight: 500;
+}
+
+/* 4. Match Scores Grid: Switzerland vs Colombia */
+.sb .tr {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    padding: 5px 10px;
+}
+
+.sb .team-name {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.sb .score {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* 5. Section Header: "পরবর্তী খেলাসুমূহ" */
+.sb .sec-label {
+    background: #686868;
+    text-align: center;
+    padding: 15px 10px 10px 10px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #FFFFFF;
+    border-top: 1px solid #7d7d7d; /* Slight separation line */
+}
+
+/* 6. Upcoming Match Blocks */
+.sb .mc {
+    padding: 10px;
+    border-top: 1px solid #7d7d7d;
+}
+
+.sb .date-row {
+    font-size: 13px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+/* 7. Venue Text: Smaller font, matches image */
+.sb .venue {
+    margin-top: 6px;
+    font-size: 12px !important;
+    color: #FFFFFF;
+    line-height: 1.4;
+}
+
+/* 8. Flag/Icon Alignment */
+.sb img.flag {
+    width: 25px;
+    height: 15px;
+    margin-bottom: 3px;
+}
+.borderC1-1 {
+    border: 1px solid #edebeb !important;
+}
+.marginT5 {
+    margin-top: 5px !important;
+}
+.padding10 {
+    padding: 10px !important;
+}
+.bg4 {
+    background-color: #f5f5f5 !important;
+}
+.marginB10 {
+    margin-bottom: 10px !important;
+}
+
+
+.borderRadius5 {
+    border-radius: 5px;
+}
+.borderD2 {
+    border: 2px dashed #b80000 !important;
+}
+.marginT40 {
+    margin-top: 40px !important;
+}
+.paddingT10 {
+    padding-top: 10px !important;
+}
+
+.padding15 {
+    padding: 15px !important;
+}
+
+.customTimeline2 #timeline {
+    list-style: none;
+    position: relative;
+}
+.marginR15 {
+    margin-right: 15px !important;
+}
+.marginL15 {
+    margin-left: 15px !important;
+}
+
+.customTimeline2 #timeline .timeline-movement {
+    /* border-bottom: dashed 1px #c40c13; */
+    position: relative;
+}
+/* Base row fix to prevent horizontal overflow */
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.customTimeline2 #timeline .timeline-badge {
+    color: #fff;
+    width: 10px;
+    height: 10px;
+    font-size: 1.2em;
+    text-align: center;
+    position: absolute;
+    top: 10px;
+    left: 23%;
+    margin-left: -6.8px;
+    background-color: #c40c13;
+    z-index: 9;
+    border-radius: 3px;
+}
+
+
+
+/* --- Responsive Overrides --- */
+@media (max-width: 767px) {
+    /* Stack timeline movement */
+    .customTimeline2 #timeline .timeline-movement {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+
+    /* Move badge to the far left for mobile */
+    .customTimeline2 #timeline .timeline-badge {
+        left: 15px; /* Shifted to left edge for mobile layout */
+        margin-left: 0;
+    }
+
+    /* Ensure content has padding so it doesn't overlap the mobile badge */
+    .customTimeline2 #timeline .timeline-content {
+        padding-left: 35px;
+    }
+
+    /* Adjust common spacing for mobile */
+    .marginT40 { margin-top: 20px !important; }
+    .padding15 { padding: 10px !important; }
+}
+
+
+
+/* ---- Responsive: mobile ---- */
+@media (max-width: 767px) {
+    .articleTitle { font-size: 20px; }
+    .articleBody { font-size: 15px; }
+    .articleMeta { flex-direction: column; align-items: flex-start; }
+    .articleMetaRight { margin-top: 6px; }
+    .articleShareBar { gap: 6px; }
+    .articleShareBtn { font-size: 12px; padding: 5px 10px; }
+    .relatedCardImg { height: 120px; }
+    .articleMainCol { padding-right: 15px; }
+    .timelineItem { flex-direction: column; gap: 2px; }
+    .timelineDate { white-space: normal; }
+}
