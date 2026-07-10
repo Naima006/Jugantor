@@ -751,6 +751,28 @@
 	<script defer src="https://www.jugantor.com/assets/vendors/flex-gallery/jquery.flexslider.js"></script>
 
 	<script>
+		$(document).ready(function() {
+			// 1. MEGA MENU (Only triggers the Mega Menu)
+			$('.mega-menu-trigger').click(function() {
+				$('.megaMenu').slideToggle(100);
+				$(this).find('i').toggleClass('fa-bars fa-times');
+			});
+
+			// 2. SIDEBAR (Only triggers the Mobile Sidebar)
+			$('.mobile-menu-trigger').click(function() {
+				$('#mobile-sidebar').addClass('active');
+				$('.sidebar-overlay').addClass('active');
+			});
+
+			// Close sidebar
+			$('.close-sidebar, .sidebar-overlay').click(function() {
+				$('#mobile-sidebar').removeClass('active');
+				$('.sidebar-overlay').removeClass('active');
+			});
+		});
+	</script>
+
+	<script>
 		/* Sticky navbar on scroll (desktop only) */
 		(function () {
 			var width = $(window).width();
