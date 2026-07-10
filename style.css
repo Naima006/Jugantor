@@ -1224,6 +1224,23 @@ ul { list-style: none; padding: 0; margin: 0; }
 }
 .adDiv img { display: block; margin: 0 auto; }
 
+.adDiv.responsive-ad {
+    width: 100%;           /* Fills the column width */
+    max-width: 300px;      /* Prevents it from getting too large */
+    margin-left: auto;     /* Centers the ad if column is wider than 300px */
+    margin-right: auto;    /* Centers the ad if column is wider than 300px */
+    display: block;
+}
+
+/* Ensure the image scales correctly */
+.adDiv.responsive-ad img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.adDiv.responsive-ad {
+  margin-bottom: 20px;
+}
 
 /* =========================================================
    13. SIDEBAR (gold-price flexslider, Latest/Popular tabs)
@@ -1328,6 +1345,20 @@ ul { list-style: none; padding: 0; margin: 0; }
 .pollOption input[type="radio"] { margin-right: 8px; }
 .downloadPoll i { color: var(--color-black); }
 
+/* Target the parent container of the title and icon */
+h2.desktopSectionTitle {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+/* Ensure the icon container doesn't force a block break */
+span.downloadPoll.displayInlineBlock {
+    display: inline-block !important;
+    float: none !important; /* Floats can sometimes interfere with Flexbox */
+}
+
 
 /* =========================================================
    15. ECONOMICS / SPORTS / ISLAM / ENTERTAINMENT / JOBS
@@ -1398,6 +1429,9 @@ ul { list-style: none; padding: 0; margin: 0; }
     color: #ffffff !important; /* Forces the text to stay white over the overlay gradient */
 }
 
+.paddingLR10 {
+  margin-bottom: 15px;
+}
 
 /* =========================================================
    17. PHOTOS CAROUSEL + GRID
@@ -1682,6 +1716,10 @@ ul { list-style: none; padding: 0; margin: 0; }
 }
 .followDiv { display: flex; flex-direction: column; align-items: flex-end; }
 .followDiv .topSocialIcon { margin-top: 10px; }
+.followDiv.h100P {
+    background-color: transparent !important;
+}
+
 .linkDivFooter {
     display: flex;
     flex-wrap: wrap;
@@ -2126,6 +2164,44 @@ ul { list-style: none; padding: 0; margin: 0; }
     margin-bottom: 20px !important;
 }
 
+/* 1. Ensure the wrapper allows a full-width background if you want that */
+.news-cards-container-wrapper {
+    background-color: #f2f2f2; /* Light grey background */
+    padding: 20px 10px;        /* Spacing inside the grey box */
+    width: 100%;
+}
+
+/* 2. Force the row to use Flexbox and stretch children */
+.news-cards-container-wrapper .row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: stretch !important; /* This forces all cards to be the same height */
+}
+
+/* 3. Force the columns to allow height expansion */
+.news-cards-container-wrapper .col-sm-4 {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* 4. Reset the card to fill the space and remove old media behavior */
+.news-cards-container-wrapper .custom-media-card {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    height: 100% !important;        /* Makes the card stretch to row height */
+    background-color: transparent !important; /* Background is now the wrapper's job */
+    padding: 10px !important;
+    border: none !important;
+}
+
+/* 5. Mobile adjustment: Stack image on top of text */
+@media (max-width: 767px) {
+    .news-cards-container-wrapper .custom-media-card {
+        flex-direction: column !important;
+        text-align: center;
+    }
+}
 /* =========================================================
    NEWS FEED COMPONENT STYLING
    ========================================================= */
@@ -2930,7 +3006,7 @@ img {
 .row {
     margin-right: -15px;
     margin-left: -15px;
-    display: flex;
+    
     flex-wrap: wrap;
 }
 .customTimeline2 #timeline .timeline-badge {
@@ -2989,4 +3065,360 @@ img {
     .articleMainCol { padding-right: 15px; }
     .timelineItem { flex-direction: column; gap: 2px; }
     .timelineDate { white-space: normal; }
+}
+
+
+#timeline .timeline-panel {
+  padding-left: 45px;
+}
+
+/* 1. Global Safety Net: Prevents any element from expanding the page width */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* 2. Fix Problematic Rows:*/
+.row.marginLR-15, 
+.row.marginLR-5 {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: auto !important;
+}
+
+/* 3. Slider Containment: */
+.flex-viewport, 
+.customFlexSlider, 
+.sidebarFlexSlider {
+  overflow: hidden !important;
+}
+
+/* 4. Responsive Containers*/
+.container, 
+.container-fluid {
+  max-width: 100vw !important;
+  box-sizing: border-box !important;
+}
+
+/* 1. Move buttons inside the container */
+.flex-direction-nav .flex-prev {
+  left: 10px !important;
+}
+
+.flex-direction-nav .flex-next {
+  right: 10px !important;
+}
+
+/* 2. Improve Button Visibility and Interaction */
+.flex-direction-nav a {
+  z-index: 9999 !important;
+  opacity: 1 !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: #333 !important; /* Arrow color */
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  text-decoration: none !important;
+}
+
+/* 3. Handle specific slider container clipping */
+.sidebarFlexSlider, 
+.customFlexSlider {
+  overflow: visible !important; 
+}
+
+/* 1. Reset Negative Margins:*/
+.desktopSectionListMedia.marginT-5 {
+  margin-top: 0 !important;
+}
+
+/* 2. Establish Clear Stacking Context:*/
+.col-sm-4.col-md-4 {
+  position: relative;
+  z-index: 1;
+  background-color:transparent !important;
+}
+
+/* 3. Mobile Separation Fix: */
+@media (max-width: 767px) {
+  .col-sm-4.col-md-4 {
+    margin-bottom: 20px !important;
+    overflow: hidden;
+    height: auto !important;
+  }
+}
+
+/* 4. Overlay safety:*/
+.linkOverlay {
+  z-index: 2;
+  pointer-events: auto;
+}
+
+/* 
+   Remove the explicit white background from the footer column
+   so it inherits the section's background color.
+*/
+.row.desktopFlexRow > .col-sm-4.col-md-4 {
+    background-color: transparent !important;
+}
+
+
+/* 1. Fix the "layering" overlap */
+aside.paddingL0 > .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* 2. Fix the mobile "sticking" issue */
+@media (max-width: 767px) {
+    aside.paddingL0 {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+}
+@media (max-width: 767px) {
+  /* Targeting the four-column grid containers specifically */
+  .col-sm-3.col-md-3 {
+    margin-bottom: 40px;
+  }
+}
+/* This ONLY targets the Islam o Jibon section */
+.islam-o-jibon-list .media-body {
+    position: relative !important;
+    padding-left: 25px !important;
+}
+
+.islam-o-jibon-list .media-body::before {
+    content: "\f04b" !important;
+    font-family: "Font Awesome 5 Free", "Font Awesome 6 Free", "FontAwesome" !important;
+    font-weight: 900 !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 5px !important; 
+    font-size: 10px !important;
+    color: #000000 !important;
+}
+
+/* Mobile Navigation Styles */
+@media (max-width: 767px) {
+  .mobile-sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+    width: 100%;
+    display: block !important;
+  }
+
+  .mobile-nav-container {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    height: 45px;
+  }
+
+  .mobile-sidebar-trigger-container {
+    flex-shrink: 0;
+    margin-right: 10px;
+    padding-right: 10px;
+    border-right: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+  }
+
+  .mobile-nav-list {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .mobile-nav-list::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+
+  .mobile-nav-list li a {
+    display: block;
+    padding: 10px 12px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 15px;
+  }
+
+  /* Hide original trigger location on mobile */
+  .desktopHeaderLogoLeftDiv .mobile-menu-trigger {
+    display: none !important;
+  }
+}
+
+/* Hide navigation bar on desktop */
+@media (min-width: 768px) {
+  .mobile-sticky-nav {
+    display: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  /* 1. Remove the redundant hamburger menu (bars icon) */
+  .desktopHeaderLogoLeftDiv .mega-menu-trigger,
+  .desktopHeaderLogoLeftDiv .desktopSearchIcon {
+    display: none !important;
+  }
+
+  /* 2. Remove the search icon from the right side of the header on mobile */
+  .desktopHeader .fa-search,
+  .desktopHeader .desktopSearchIcon2 {
+    display: none !important;
+  }
+  
+  /* 3. Ensure the Sidebar Trigger in the NEW nav remains visible */
+  #mobile-sidebar-target .mobile-menu-trigger {
+    display: inline-block !important;
+  }
+}
+
+@media (max-width: 767px) {
+    /* 1. Ensure the sticky container has no parent with overflow hidden */
+    .mobile-sticky-nav {
+        position: -webkit-sticky; 
+        position: sticky;
+        top: 0;
+        z-index: 9999 !important; /* Forces it to the top layer */
+        background: #ffffff;
+        width: 100%;
+        display: block !important;
+        border-bottom: 1px solid #eee;
+    }
+}
+
+@media (max-width: 767px) {
+    #navbar_top.fixed-top {
+        position: relative !important;
+        top: auto !important;
+        width: 100% !important;
+        z-index: auto !important;
+    }
+    body {
+        padding-top: 0 !important;
+    }
+}
+
+@media (max-width: 767px) {
+    /* 1. Hide the large desktop logo/top-bar container */
+    header.desktopHeader > .container.bgWhite.marginT10 {
+        display: none !important;
+    }
+
+    /* 2. Position the mobile bar at the absolute top */
+    .mobile-sticky-nav {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        z-index: 10001 !important;
+        background: #fff !important;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    /* 3. Space out the body so content isn't hidden */
+    body {
+        padding-top: 0px !important; 
+    }
+}
+
+@media (max-width: 767px) {
+    /* Show the logo section on mobile by default */
+    header.desktopHeader > .container.bgWhite.marginT10 {
+        display: block !important;
+    }
+
+    /* Reset the sticky nav to be relative at the top */
+    .mobile-sticky-nav {
+        position: relative !important;
+        top: auto !important;
+    }
+
+    /* Class applied via JS when scrolling down */
+    .mobile-sticky-nav.is-sticky {
+        position: fixed !important;
+        top: 0 !important;
+        width: 100%;
+        z-index: 10001;
+    }
+}
+/* 1. Mobile logic ONLY */
+@media (max-width: 767px) {
+    /* Ensure the main header container stays in the normal flow at the top */
+    header.desktopHeader {
+        position: relative !important;
+        display: block !important;
+    }
+
+    /* Hide the desktop-only navbar */
+    #navbar_top {
+        display: none !important;
+    }
+
+    /* Keep the logo section visible at the top of the header */
+    header.desktopHeader > .container.bgWhite.marginT10 {
+        display: block !important;
+        text-align: center;
+        padding: 10px 0 !important;
+    }
+
+    /* The dedicated mobile navbar */
+    .mobile-sticky-nav {
+        display: block !important;
+        width: 100% !important;
+        background: #fff !important;
+        z-index: 10001 !important;
+    }
+
+    /* This class is added by JavaScript when the user scrolls past the logo */
+    .mobile-sticky-nav.is-sticky {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+}
+
+/* 2. Desktop logic: Hide the mobile-specific navbar */
+@media (min-width: 768px) {
+    .mobile-sticky-nav {
+        display: none !important;
+    }
+}
+
+/* 1. Ensure the sidebar stays on top */
+.mobile-sidebar {
+    z-index: 10000 !important; /* Higher than the navbar */
+}
+
+/* 2. Ensure the overlay covers the navbar too */
+.sidebar-overlay {
+    z-index: 9999 !important; /* Just below the sidebar, but above the nav */
+}
+
+/* 3. Lower the sticky nav z-index relative to the sidebar */
+@media (max-width: 767px) {
+    .mobile-sticky-nav {
+        z-index: 9997 !important; /* Below the overlay and sidebar */
+    }
+    
+    /* When the sidebar is active, ensure the nav doesn't poke through */
+    .mobile-sidebar.active ~ .mobile-sticky-nav {
+        z-index: 9997 !important;
+    }
 }

@@ -205,6 +205,30 @@
 				</div>
 			</div>
 		</nav>
+
+		<nav class="mobile-sticky-nav">
+			<div class="mobile-nav-container">
+				<div class="mobile-sidebar-trigger-container" id="mobile-trigger-target">
+					<!-- Sidebar icon will be moved here -->
+					<span class="mobile-menu-trigger visible-xs cursorPointer" style="display: inline-block; vertical-align: middle;">
+						<span class="mobile-menu-trigger visible-xs cursorPointer" style="display: inline-block; vertical-align: middle;">
+							<i class="fa fa-bars w17 colorBlack"></i>
+						</span>
+					</span>
+				</div>
+				<ul class="mobile-nav-list">
+				<li><a href="/latest">সর্বশেষ</a></li>
+				<li><a href="/national.html">জাতীয়</a></li>
+				<li><a href="/politics">রাজনীতি</a></li>
+				<li><a href="/economics">অর্থনীতি</a></li>
+				<li><a href="/international">আন্তর্জাতিক</a></li>
+				<li><a href="/whole-country">সারাদেশ</a></li>
+				<li><a href="/sports">খেলা</a></li>
+				<li><a href="/entertainment">বিনোদন</a></li>
+				<li><a href="/jobs">চাকরি</a></li>
+				</ul>
+			</div>
+		</nav>
 	</header>
 	<!-- ===================== DESKTOP HEADER END ===================== -->
 
@@ -495,9 +519,15 @@
 
 				<!-- ===== SIDEBAR ===== -->
 				<aside class="col-sm-3 col-md-3 paddingL0">
-					<!-- Gold price flex slider -->
 					<div class="row flexslider2MainDiv shoulderYellow">
-					</div>
+						<div class="col-sm-12 col-md-12" style="text-align: center; padding-right: 15px;">
+							<br>
+							<p style="color: #a1a0a0; font-size: 11px; margin: 5px 0 0 0;">Advertisement</p>
+							<br>
+							<p style="color: #a1a0a0; font-size: 11px; margin: 5px 0  0;">Advertisement</p>
+							<br>
+							<p style="color: #a1a0a0; font-size: 11px; margin: 5px 0 -5 0;">Advertisement</p>
+						</div>
 
 					<!-- Latest / Popular tabs — unique IDs: latestTabD / highestTabD -->
 					<div class="row popularNewsWidgetDesktop">
@@ -681,6 +711,36 @@
 	<!-- Scroll to top -->
 	<span onclick="gotop()" class="go-to-top hidden-print" style="display: none;"><i class="fa fa-angle-up" aria-hidden="true"></i></span>
 
+	<div id="mobile-sidebar" class="mobile-sidebar">
+		<div class="sidebar-header">
+			<span class="close-sidebar">&times;</span>
+		</div>
+
+		<!-- ADDED: E-paper links -->
+		<div class="mobile-sidebar-extras" style="padding: 15px; border-bottom: 1px solid #eee;">
+			<a href="#/todays-paper" style="display:block; padding: 8px 0; font-weight: bold; color: var(--brand-red);">আজকের পত্রিকা</a>
+			<a href="https://epaper.jugantor.com" target="_blank" style="display:block; padding: 8px 0; font-weight: bold; color: var(--brand-red);">ই-পেপার</a>
+		</div>
+
+		<ul class="mobile-nav-links">
+			<li><a href="#/latest">সর্বশেষ</a></li>
+			<li><a href="national.html">জাতীয়</a></li>
+			<li><a href="#/politics">রাজনীতি</a></li>
+			<li><a href="#/economics">অর্থনীতি</a></li>
+			<li><a href="#/international">আন্তর্জাতিক</a></li>
+			<li><a href="#/sports">খেলা</a></li>
+		</ul>
+
+		<!-- ADDED: Social Icons -->
+		<div class="mobile-sidebar-social" style="padding: 20px; display: flex; gap: 15px; justify-content: center;">
+			<a href="https://www.facebook.com/DainikJugantor" target="_blank" class="fa fa-brands fa-facebook"></a>
+			<a href="https://twitter.com/DailyJugantor" target="_blank" class="fa fa-brands fa-x-twitter"></a>
+			<a href="https://www.linkedin.com/company/daily-jugantor/" target="_blank" class="fa fa-brands fa-linkedin"></a>
+			<a href="https://www.instagram.com/dainikjugantor/" target="_blank" class="fa fa-brands fa-instagram"></a>
+			<a href="https://www.youtube.com/c/DailyJugantorYouTube?sub_confirmation=1" target="_blank" class="fa fa-brands fa-youtube"></a>
+		</div>
+	</div>
+	<div class="sidebar-overlay"></div>
 
 	<!-- ===================== SCRIPTS ===================== -->
 	<!-- jQuery -->
@@ -779,6 +839,39 @@
 				});
 			}
 		});
+
+		(function() {
+			// Select the elements
+			const mobileNav = document.querySelector('.mobile-sticky-nav');
+			const logoContainer = document.querySelector('header.desktopHeader > .container.bgWhite.marginT10');
+			
+			function updateSticky() {
+				// Only run this logic on mobile screens
+				if (window.innerWidth >= 768) {
+					if (mobileNav) mobileNav.classList.remove('is-sticky');
+					return;
+				}
+
+				if (!mobileNav || !logoContainer) return;
+
+				// Get the position of the logo container relative to the viewport
+				const logoRect = logoContainer.getBoundingClientRect();
+				
+				// If the bottom of the logo has scrolled past the top of the screen (<= 0)
+				if (logoRect.bottom <= 0) {
+					mobileNav.classList.add('is-sticky');
+				} else {
+					mobileNav.classList.remove('is-sticky');
+				}
+			}
+
+			// Listen for scroll and resize events
+			window.addEventListener('scroll', updateSticky);
+			window.addEventListener('resize', updateSticky);
+			
+			// Initial check in case the page is refreshed while already scrolled down
+			updateSticky();
+		})();
 	</script>
 
 </body>
