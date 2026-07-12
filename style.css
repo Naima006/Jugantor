@@ -63,12 +63,17 @@
 }
 
 
+:root {
+  zoom: 1.1;
+}
+
 /* =========================================================
    2. BASE RESETS & TYPOGRAPHY
    ========================================================= */
     * { box-sizing: border-box; }
 
 
+    
 body {
     font-family: var(--font-bn);
     font-size: 15px;
@@ -3511,4 +3516,10 @@ body .desktopSectionListMedia.text-md-heading h4.title11,
     .mobile-sidebar.active ~ .mobile-sticky-nav {
         z-index: 9997 !important;
     }
+}
+
+@media (min-width: 1024px) {
+  html {
+    zoom: 1.1 !important;
+  }
 }
