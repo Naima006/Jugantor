@@ -1357,14 +1357,20 @@ ul { list-style: none; padding: 0; margin: 0; }
   padding: 10px 0px;
 }
 
-.desktopSectionListMedia .media-left {
-  flex: 0 0 80px;
-  width: 80px;
-  min-width: 0px !important;
-  padding: 0px;
-  margin-right: 10px;
-  display: block;
+.popularNewsWidgetDesktop .col-sm-12.col-md-12.marginB20 .media-left {
+    flex: 0 0 80px !important;
+    width: 80px !important;
+    min-width: 0px !important;
+    padding: 0px !important;
+    margin-right: 10px !important;
+    display: block !important;
 }
+
+.popularNewsWidgetDesktop .col-sm-12.col-md-12.marginB20 .media-left img {
+    width: 100% !important;
+    height: auto !important;
+}
+
 
 .ajaxLatestNewsDivDesktop .media-object {
   width: 80px;
@@ -2729,10 +2735,6 @@ strong {
 .desktopSectionLead:hover h3.title11,
 .desktopSectionLead:hover h4.title11 {
     color: var(--brand-red) !important;
-    text-shadow: 0.5px 0px 0px currentColor, 
-                -0.5px 0px 0px currentColor, 
-                0px 0.5px 0px currentColor, 
-                0px -0.5px 0px currentColor;
 }
 
 /* 5. Fix for Latest/Popular Tabs */
@@ -3032,6 +3034,19 @@ img {
 }
 .marginT-2 {
     margin-top: -2px !important;
+}
+
+/* Apply to the children of the main container */
+.hidden-print.borderC1-1.borderRadius5.desktopFlexRow > div {
+    display: flex;
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Horizontally center content */
+}
+
+/* Remove the top margins from the inner p tags */
+.hidden-print.borderC1-1.borderRadius5.desktopFlexRow p {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
 }
 /* 1. Main Container: Dark Grey background matches reference */
 .sb {
