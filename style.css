@@ -303,7 +303,7 @@ ul { list-style: none; padding: 0; margin: 0; }
 .desktopSectionListMedia .media {
     display: flex !important;
     align-items: center !important;
-    padding: 12px 0 !important;
+    padding: 8px 0 !important;
     border-bottom: 1px solid #d8d8d8 !important;
     position: relative !important;
     overflow: hidden !important;
@@ -1291,20 +1291,31 @@ ul { list-style: none; padding: 0; margin: 0; }
     display: block;
     padding: 12px 0;
     text-align: center;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 600;
     border: none !important;
     border-radius: 0 !important;
     background: #d1d1d1;
     transition: all 0.2s ease;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    line-height: 1.2;
 }
+
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
     color: var(--color-white);
+    margin-right: 0px !important;
     background: var(--brand-red);
     border: none !important;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 18px;
+    line-height: 1.2;
+    
 }
+
 .nav-tabs.borderTRadius5 { border-top-left-radius: var(--radius-5); border-top-right-radius: var(--radius-5); overflow: hidden; }
 .borderNone { border: none !important; }
 
@@ -1312,21 +1323,10 @@ ul { list-style: none; padding: 0; margin: 0; }
 .tab-content.borderT0 { border-top: 0; }
 .tab-pane { padding: 0; }
 
-.latestDivHeight { max-height: 480px; overflow-y: auto; }
+.latestDivHeight { max-height: 380px; overflow-y: auto; }
 
 /* Latest/Popular list items */
-.ajaxLatestNewsDivDesktop .media,
-.ajaxPopularNewsDivDesktop .media {
-    padding: 12px 10px;
-    border-bottom: 1px solid var(--color-3);
-}
-.ajaxLatestNewsDivDesktop .media:last-child,
-.ajaxPopularNewsDivDesktop .media:last-child { border-bottom: none; }
-.ajaxLatestNewsDivDesktop .media-object,
-.ajaxPopularNewsDivDesktop .media-object { width: 100px; }
-.ajaxLatestNewsDivDesktop h4, .ajaxPopularNewsDivDesktop h4 { font-size: 15px; font-weight: 500; line-height: 1.4; }
 
-/* Popular count badge */
 .popularCount {
     display: flex;
     align-items: center;
@@ -1347,7 +1347,91 @@ ul { list-style: none; padding: 0; margin: 0; }
 }
 .tab-content > .tab-pane > p.bgRed a { color: var(--color-white); }
 
+.ajaxLatestNewsDivDesktop .media {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 0px;
+}
 
+.desktopSectionListMedia .media-left {
+  flex: 0 0 80px;
+  width: 80px;
+  min-width: 0px !important;
+  padding: 0px;
+  margin-right: 10px;
+  display: block;
+}
+
+.ajaxLatestNewsDivDesktop .media-object {
+  width: 80px;
+  height: 80px;
+  display: block;
+  object-fit: cover;
+}
+
+.desktopSectionListMedia .media-body {
+  flex: 1 1 0%;
+  min-width: 0px;
+  width: auto;
+  padding: 0px;
+  display: block;
+}
+
+.ajaxLatestNewsDivDesktop h4 {
+  margin: 0px;
+  line-height: 1.3;
+  padding: 0px;
+}
+
+.linkOverlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Ensure the row container doesn't wrap its children */
+.row.popularNewsWidgetDesktop .media {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* Fix the thumbnail to a small square on the left */
+.row.popularNewsWidgetDesktop .media-left {
+    flex: 0 0 80px !important; /* Fixed width, won't shrink or grow */
+    width: 80px !important;
+}
+
+.row.popularNewsWidgetDesktop .media-left img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover; /* Ensures square crop without distortion */
+    border-radius: 4px;
+}
+
+/* Allow the text to fill the remaining space on the right */
+.row.popularNewsWidgetDesktop .media-body {
+    flex: 1 !important; /* Takes up all available space */
+    min-width: 0; /* Prevents text from overflowing the flex container */
+}
+
+.row.popularNewsWidgetDesktop .media-body h4 {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.4;
+    word-break: break-word;
+}
 /* =========================================================
    14. POLL WIDGET
    ========================================================= */
@@ -1661,11 +1745,14 @@ span.downloadPoll.displayInlineBlock {
 
 strong {
   font-weight: 900;
-  text-shadow: black 0.5px 0px 0px, black -0.5px 0px 0px;
+  text-shadow: var(--color-black) 0.5px 0px 0px, var(--brand-black) -0.5px 0px 0px;
 }
 
 .desktopSectionLead .caption h3.title9 {
-  text-shadow: var(--color-black) 0.5px 0px 0px, var(--color-black) -0.5px 0px 0px;
+  text-shadow: 0.25px 0px 0px currentColor, 
+                -0.25px 0px 0px currentColor, 
+                0px 0.25px 0px currentColor, 
+                0px -0.25px 0px currentColor;
   font-weight: 900;
 }
 
@@ -2415,15 +2502,6 @@ strong {
     }
 }
 
-/* Category Title Styles */
-.desktopCategoryTitle {
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    border-bottom: 2px solid var(--color-3);
-    padding-bottom: 10px;
-}
-
 .desktopSubCategoryDiv ul {
     display: flex;
     flex-wrap: wrap;
@@ -2461,12 +2539,13 @@ strong {
     font-weight: 700;
     margin: 0 0 8px 0;
     padding-bottom: 6px;
-    border-bottom: 3px solid var(--brand-red);
+    border-bottom: 2px solid var(--brand-red);
     display: inline-block;
     line-height: 1.3;
 }
 .desktopCategoryTitle a {
     color: var(--brand-red);
+    text-shadow:  var(--brand-red) 0.5px 0px 0px, var(--brand-red) -0.5px 0px 0px;;
     text-decoration: none;
 }
 .desktopCategoryTitle a:hover { color: #900; }
@@ -2650,6 +2729,10 @@ strong {
 .desktopSectionLead:hover h3.title11,
 .desktopSectionLead:hover h4.title11 {
     color: var(--brand-red) !important;
+    text-shadow: 0.5px 0px 0px currentColor, 
+                -0.5px 0px 0px currentColor, 
+                0px 0.5px 0px currentColor, 
+                0px -0.5px 0px currentColor;
 }
 
 /* 5. Fix for Latest/Popular Tabs */
@@ -2670,11 +2753,18 @@ strong {
     font-size: 32px;
     font-weight: 900;
     line-height: 1.4;
-    color: #111;
-    margin: 0 0 12px 0;
+    color: var(--color-black);
+    margin: 0 0 20px 0;
     font-family: var(--font-bn);
 }
 
+h1.articleTitle {
+    font-weight: 900;
+    text-shadow: 0.5px 0px 0px currentColor, 
+                -0.5px 0px 0px currentColor, 
+                0px 0.5px 0px currentColor, 
+                0px -0.5px 0px currentColor;
+}
 /* ---- Meta row ---- */
 .articleMeta {
     display: flex;
@@ -2697,7 +2787,11 @@ strong {
     object-fit: cover;
     border: 2px solid #eee;
 }
-.articleAuthorInfo { display: flex; flex-direction: column; }
+.articleAuthorInfo {
+    display: flex;
+    flex-direction:column;
+    gap: 5px;
+}
 .articleAuthorName {
     font-size: 16px;
     font-weight: 700;
@@ -2795,6 +2889,10 @@ strong {
     margin-bottom: 18px;
 }
 
+.desktopDetailBody.innerAdDiv {
+  font-size: 20px !important;
+  line-height: 1.6;
+}
 /* ---- Tags ---- */
 .articleTags {
     display: flex;
@@ -2888,6 +2986,38 @@ strong {
     background: #fff;
 }
 
+/* Container and Paragraph alignment/sizing */
+.desktopDetailTag.hidden-print {
+    text-align: left !important;
+}
+
+.desktopDetailTag.hidden-print p {
+    text-align: left !important;
+    font-size: 18px !important;
+    padding-left: 0px !important;
+    padding-right: 20px !important;
+    margin-left: 0px !important;
+}
+
+/* Individual Tag Item styling (Buttons) */
+.desktopDetailTag.hidden-print p a.desktopTagItem {
+    display: inline-block !important;
+    color: #555 !important; /* Lighter grey text */
+    background-color: #f0f0f0 !important; /* Light background */
+    padding: 5px 12px !important; /* Button padding */
+    margin-right: 15px !important; /* Spacing between buttons */
+    margin-bottom: 10px !important; /* Spacing for wrapped lines */
+    border-radius: 20px !important; /* Pill shape */
+    border: 1px solid #ddd !important; /* Subtle border */
+    text-decoration: none !important;
+    transition: background-color 0.2s ease !important;
+}
+
+/* Hover effect for the buttons */
+.desktopDetailTag.hidden-print p a.desktopTagItem:hover {
+    background-color: #e0e0e0 !important;
+    border-color: #ccc !important;
+}
 
 .carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
     display: block;
@@ -3523,4 +3653,70 @@ body .desktopSectionListMedia.text-md-heading h4.title11,
   html {
     zoom: 1.1 !important;
   }
+}
+
+@media print {
+  /* 1. Hide everything on the page by default */
+  body * {
+    visibility: hidden !important;
+  }
+
+  /* 2. Show only the article content and its children */
+  .articleMainCol, 
+  .articleMainCol *,
+  .articleTitle,
+  .articleFeaturedImage,
+  .articleFeaturedImage img,
+  .desktopDetailBody,
+  .desktopDetailBody * {
+    visibility: visible !important;
+  }
+
+  /* 3. Allow content to flow naturally so it can span multiple pages */
+  .articleMainCol {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* 4. Reset all parent containers to ensure no content is clipped/hidden */
+  html, body, .mainDiv, .container, .row, .col-md-9 {
+    height: auto !important;
+    overflow: visible !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    visibility: visible !important;
+  }
+
+  /* 5. Specifically hide headers, footers, sidebars, and metadata */
+  .articleMeta,
+  .articleBreadcrumb,
+  .articleRelated,
+  .hidden-print,
+  .desktopDetailTag,
+  .timelineNewsWidgetDesktop1,
+  .articleShareIcon,
+  .articleViewCount,
+  aside,
+  header,
+  footer,
+  nav,
+  .col-md-3 {
+    display: none !important;
+  }
+
+  /* 6. Ensure images are responsive and centered */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+    margin: 10px auto;
+  }
+
+  /* 7. Prevent page breaks immediately after titles or images */
+  h1 { page-break-after: avoid; }
+  .articleFeaturedImage { page-break-after: avoid; }
 }
